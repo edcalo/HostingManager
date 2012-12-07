@@ -18,42 +18,50 @@
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo __('CakePHP: the rapid development php framework:'); ?>
-		<?php echo $title_for_layout; ?>
-	</title>
-	<?php
-		echo $this->Html->meta('icon');
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <title>Fundacion Simon I. Pati&ntilde;o - <?php echo $title_for_layout; ?></title>
 
-		echo $this->Html->css('cake.generic');
+        <link href="/img/favicon.png" rel="icon" type="image/png"  />
+        <!--[if IE]>
+            <link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+        <![endif]-->
+        <?php
+        $opciones = array('inline' => true);
+        echo $this->Html->css('http://localhost/libs/extjs-4.1.1/resources/css/ext-all.css', 'stylesheet', $opciones);
+        echo $this->Html->script('http://localhost/libs/extjs-4.1.1/ext-all-dev.js', $opciones);
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
-</head>
-<body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link(__('CakePHP: the rapid development php framework'), 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
+        echo $this->Html->css('fusip');
+        echo $this->Html->meta('icon');
 
-			<?php echo $this->Session->flash(); ?>
 
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => __('CakePHP: the rapid development php framework'), 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
-	</div>
-	<?php echo $this->element('sql_dump'); ?>
-</body>
+
+        echo $this->fetch('meta');
+        echo $this->fetch('css');
+        echo $this->fetch('script');
+        ?>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="api-title">
+                    Sistema de informacion de la Fundacion Simon I. Pati&ntilde;o
+                </div>
+            </div>
+            <div id="content">
+                <?php echo $this->Session->flash(); ?>
+
+                <?php echo $this->fetch('content'); ?>
+            </div>
+            <div id="footer">
+                <div style="float: left; padding-top: 10px;">
+                    Fundacion Sim&oacute;n I. Pati&ntilde;o &copy; - Todos los derechos reservados 2012
+                </div>
+            </div>
+        </div>
+
+        <?php echo $this->element('sql_dump'); ?>
+    </body>
 </html>
+
+

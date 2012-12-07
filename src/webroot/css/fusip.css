@@ -1,0 +1,167 @@
+﻿body, .x-body {
+    font-family: arial,verdana,sans-serif;
+    font-size: 12px;
+	color: black;
+}
+
+#header{
+    border:0 none;
+    background-color:#1E4176;
+    background-image: url(../img/bg-top.png);
+    background-repeat: repeat-x;
+    background-position: center top;
+    padding-top:3px;
+    padding-left:3px;
+    height: 100px;
+}
+#header .api-title {
+    font:normal 16px tahoma, arial, sans-serif;
+    color:white;
+    margin:5px;
+}
+
+
+img.img_left{
+    float:left;
+    padding:0px 8px 8px 0px;
+}
+/*------------------------------main content-----------------------*/
+#main_content{
+    margin:auto;
+    clear:both;
+}
+/*------------------------middle_content-----------*/
+.center_text{
+    width: auto;
+    margin:0px;
+    padding:20px 20px 5px 30px;
+    text-align:justify;
+	font-size: 16px;
+}
+.center_text h1{
+    color:#1E4E8F;
+    border-bottom: 1px #DADDE1 double;
+    border-left: 1px #DADDE1 solid;
+    padding: 0px 0px 5px 5px;
+    margin: 5px;
+}
+#center_content{
+    margin:auto;
+}
+.left_content{
+    width:44%;
+    float:left;
+}
+
+.right_content{
+    width:55%;
+    float:left;
+    
+}
+.news_tab{
+    clear:both;
+    padding:10px;
+    margin: 2px;
+    border: 2px #DADDE1 solid;
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding-box;
+    -moz-border-radius: 10px;
+    background-color: #F3F3F3;
+    cursor: pointer;
+    font-size: 14px;
+    min-height: 70px;
+}
+.news_tab:hover{
+    background-color: #FFFFCC;
+    border: 2px #996600 solid;
+}
+.news_tab h3{
+    font-size: 16px;
+    color: #990000;
+}
+
+/*-------------------footer------------------------*/
+#footer{
+    background:#1E4176 url(../img/hd-bg.gif) repeat-x 0 0;
+    height:30px;
+    clear:both;
+    padding-left:10px;
+    color:white;
+}
+
+ol.commentlist {
+    margin: 12px 20px;
+    padding: 0;
+    border-style: solid;
+    border-color: #F0F0F0;
+    border-width: 1px 1px 0 1px;
+}
+.commentlist li {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+    border-bottom: 1px solid #F0F0F0;
+}
+.commentlist li cite {
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+    padding: 7px;
+}
+.commentlist li cite img {
+    float: left;
+    margin-right: 10px;
+}
+.commentlist li cite .comment-data {
+    font-size: .8em;
+    font-weight: normal;
+}
+.commentlist li .comment-text {
+    clear: both;
+    margin: 0; padding: 5px 0 0 0;
+}
+.commentlist li.alt {
+    background: #F8F8F8;
+}
+
+#cabecera{
+    background: transparent url('../img/fondo-logo.jpg');
+    background-attachment: scroll;
+}
+
+#cabecera h1{
+    font-size: 16px;
+    color: #003366;
+}
+#cabecera h2{
+    font-size: 14px;
+    color: #003366;
+}
+#cabecera h3{
+    font-size: 12px;
+    color: #003366;
+    font-weight: normal;
+}
+
+.logo-login{
+    padding-top: 15px;
+    background: transparent url('../img/keychain_access.png')  right center  no-repeat;
+}
+.fondo-login-institucion{
+    padding: 30px 30px 30px 145px;
+    font-family: arial;
+    background: transparent url('../img/logo_institucion2.jpg') 5px center no-repeat;
+}
+.cod .x-form-item-label {font-weight:bold;font-size: 16px;}
+
+.grande{
+    font-size: 16px;
+    height: 24px;
+}
+
+.login{
+    background-repeat: repeat;
+    padding:15px;
+    background-image: url('../img/logo_marca_agua.gif');
+}
