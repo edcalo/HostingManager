@@ -31,7 +31,7 @@ Ext.define('Hosting.view.server.Form', {
                     layout: 'anchor',
                     items: [{
                         xtype: 'textfield',
-                        name : 'groupname',
+                        name : 'server_name',
                         fieldLabel: 'Identificador',
                         msgTarget: 'side',
                         allowBlank: false,

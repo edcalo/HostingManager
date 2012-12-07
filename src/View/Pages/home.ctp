@@ -22,7 +22,7 @@ echo $this->Html->script("app");
     <div class="center_text">
         <h1>
             Bienvenido a FUSIP</h1>
-        <img src="/img/logo_institucion.jpg" class="img_left" alt="logo institucion" />
+        <?php echo $this->Html->image('logo_institucion.jpg', array('alt' => __('logo institucion'), 'border' => '0', 'class'=>'img_left' ))?>
         FUSIP fue dise&ntilde;ado como un sistema interno de la institucion para la administracion
         y seguimiento de los recursos.
     </div>

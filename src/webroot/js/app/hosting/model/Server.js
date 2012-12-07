@@ -5,13 +5,22 @@ Ext.define('Hosting.model.Server', {
         type: 'int',
         mapping: 'id'
     },
-    'groupname',
-    'members',
-    'description',
+    'server_name'
+    ,{
+        name:'fqdn',
+        type:'string',
+        mapping: 'fully_qualified_domain_name'
+    },'ip',
+    'server_description',
     {
         name:'save',
         type: 'int',
         mapping: 'save'
+    },
+    {
+        name:'is_active',
+        type: 'bool',
+        mapping: 'is_active'
     },
     'type']
 });

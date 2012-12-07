@@ -41,7 +41,7 @@ Ext.define('Hosting.view.server.List' ,{
                 '<div class="thumb">',
                 (!Ext.isIE6? '<img src="img/ftp/generic_server.png" />' : '<div style="width:74px;height:74px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'img/ftp/generic_server.png\')"></div>'),
                 '</div>',
-                '<span>{groupname}</span>',
+                '<span>{server_name}</span>',
                 '</div>',
                 '</tpl>'
                 // '</div>'
