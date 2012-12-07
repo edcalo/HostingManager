@@ -7,6 +7,6 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'hosting',
+		'database' => 'hosting_v2',
 	);
 }

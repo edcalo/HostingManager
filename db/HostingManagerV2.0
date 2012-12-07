@@ -1,0 +1,159 @@
+/*==============================================================*/
+/* DBMS name:      MySQL 5.0                                    */
+/* Created on:     06/12/2012 08:03:27 p.m.                     */
+/*==============================================================*/
+
+
+drop table if exists accounts;
+
+drop table if exists account_access;
+
+drop table if exists account_activities;
+
+drop table if exists account_server;
+
+drop table if exists quota_limits;
+
+drop table if exists quota_tallies;
+
+drop table if exists servers;
+
+drop table if exists users;
+
+/*==============================================================*/
+/* Table: accounts                                              */
+/*==============================================================*/
+create table accounts
+(
+   id                   int not null,
+   user_id              int not null,
+   account_name         varchar(20) not null,
+   account_password     char(40) not null,
+   uid                  int not null,
+   gid                  int not null,
+   home_dir             varchar(255) not null,
+   shell                varchar(50) not null,
+   count                int not null,
+   accessed             date not null,
+   expired              date,
+   primary key (id)
+);
+
+/*==============================================================*/
+/* Table: account_access                                        */
+/*==============================================================*/
+create table account_access
+(
+   id                   int not null,
+   account_name         varchar(32) not null,
+   host                 varchar(20) not null,
+   date                 date not null,
+   action               char(10) not null,
+   primary key (id)
+);
+
+/*==============================================================*/
+/* Table: account_activities                                    */
+/*==============================================================*/
+create table account_activities
+(
+   id                   int not null auto_increment,
+   account_name         varchar(32) not null,
+   host                 varchar(20) not null,
+   date                 date not null,
+   detail_activity      text not null,
+   primary key (id)
+);
+
+/*==============================================================*/
+/* Table: account_server                                        */
+/*==============================================================*/
+create table account_server
+(
+   account_id           int not null,
+   server_id            int not null,
+   primary key (account_id, server_id)
+);
+
+/*==============================================================*/
+/* Table: quota_limits                                          */
+/*==============================================================*/
+create table quota_limits
+(
+   id                   int not null,
+   account_id           int not null,
+   account_name         varchar(32),
+   quota_type           bool,
+   per_session          bool,
+   limit_type           bool,
+   bytes_in_avail       int,
+   bytes_out_avail      int,
+   bytes_xfer_avail     int,
+   files_in_avail       int,
+   files_out_avail      int,
+   files_xfer_avail     int,
+   primary key (id)
+);
+
+/*==============================================================*/
+/* Table: quota_tallies                                         */
+/*==============================================================*/
+create table quota_tallies
+(
+   id                   int not null,
+   account_id           int not null,
+   account_name         varchar(32),
+   bytes_in_used        int,
+   bytes_out_used       int,
+   files_in_used        int,
+   files_out_userd      int,
+   files_xfer_used      int,
+   primary key (id)
+);
+
+/*==============================================================*/
+/* Table: servers                                               */
+/*==============================================================*/
+create table servers
+(
+   id                   int not null,
+   server_name          varchar(20) not null,
+   fully_qualified_domain_name varchar(255),
+   ip                   varchar(15),
+   server_description   text,
+   is_active            char(6) not null,
+   primary key (id)
+);
+
+/*==============================================================*/
+/* Table: users                                                 */
+/*==============================================================*/
+create table users
+(
+   id                   int not null,
+   first_name           varchar(50) not null,
+   last_name            varchar(50) not null,
+   email                varchar(50) not null,
+   created              date not null,
+   modified             date not null,
+   status               char(6) not null,
+   photo                char(254),
+   is_deleted           bool not null,
+   primary key (id)
+);
+
+alter table accounts add constraint fk_useraccount foreign key (user_id)
+      references users (id) on delete restrict on update cascade;
+
+alter table account_server add constraint fk_fk_accountservertoaccounts foreign key (account_id)
+      references accounts (id) on delete restrict on update cascade;
+
+alter table account_server add constraint fk_fk_servertoaccountserver foreign key (server_id)
+      references servers (id) on delete restrict on update cascade;
+
+alter table quota_limits add constraint fk_accountquotalimit foreign key (account_id)
+      references accounts (id) on delete restrict on update cascade;
+
+alter table quota_tallies add constraint fk_accountquotatall foreign key (account_id)
+      references accounts (id) on delete restrict on update cascade;
+
