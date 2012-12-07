@@ -142,18 +142,18 @@ create table users
    primary key (id)
 );
 
-alter table accounts add constraint fk_useraccount foreign key (user_id)
+alter table accounts add constraint fk_user_account foreign key (user_id)
       references users (id) on delete restrict on update cascade;
 
-alter table account_server add constraint fk_fk_accountservertoaccounts foreign key (account_id)
+alter table account_server add constraint fk_accountserver_to_accounts foreign key (account_id)
       references accounts (id) on delete restrict on update cascade;
 
-alter table account_server add constraint fk_fk_servertoaccountserver foreign key (server_id)
+alter table account_server add constraint fk_server_to_accountserver foreign key (server_id)
       references servers (id) on delete restrict on update cascade;
 
-alter table quota_limits add constraint fk_accountquotalimit foreign key (account_id)
+alter table quota_limits add constraint fk_account_quotalimit foreign key (account_id)
       references accounts (id) on delete restrict on update cascade;
 
-alter table quota_tallies add constraint fk_accountquotatall foreign key (account_id)
+alter table quota_tallies add constraint fk_account_quotatall foreign key (account_id)
       references accounts (id) on delete restrict on update cascade;
 

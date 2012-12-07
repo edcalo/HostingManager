@@ -17,67 +17,65 @@
  */
 echo $this->Html->script("app");
 ?>
-<div id="main_content">
-    <div class="left_content">
-        <div class="center_text">
-            <h1>
-                Bienvenido a FUSIP</h1>
-            <img src="/img/logo_institucion.jpg" class="img_left" alt="logo institucion" />
-            FUSIP fue dise&ntilde;ado como un sistema interno de la institucion para la administracion
-            y seguimiento de los recursos.
-        </div>
-        <div class="x-clear">
-        </div>
-        <div class="center_text">
-            <h1>
-                Sistemas Disponibles para el usuario</h1>
-            <div id="modulos-disponibles">
-                <div class="news_tab">
-                    <img src="/img/Security.png" alt="No inicio session" class="img_left" />
-                    <h3>
-                        No inicio session</h3>
-                    <hr />
-                    <p>
-                        Disculpe <b>No ha iniciado session</b>, para tener acceso al menu debe iniciar session
-                        primero.<br />
-                        <br />
-                        Para iniciar session haga click en el boton <b>Iniciar session</b> que se encuentra
-                        en la esquina superior derecha e ingrese sus credenciales.</p>
-                </div>
+
+<div class="left_content">
+    <div class="center_text">
+        <h1>
+            Bienvenido a FUSIP</h1>
+        <img src="/img/logo_institucion.jpg" class="img_left" alt="logo institucion" />
+        FUSIP fue dise&ntilde;ado como un sistema interno de la institucion para la administracion
+        y seguimiento de los recursos.
+    </div>
+    <div class="x-clear">
+    </div>
+    <div class="center_text">
+        <h1>
+            Sistemas Disponibles para el usuario</h1>
+        <div id="modulos-disponibles">
+            <div class="news_tab">
+                <img src="/img/Security.png" alt="No inicio session" class="img_left" />
+                <h3>
+                    No inicio session</h3>
+                <hr />
+                <p>
+                    Disculpe <b>No ha iniciado session</b>, para tener acceso al menu debe iniciar session
+                    primero.<br />
+                    <br />
+                    Para iniciar session haga click en el boton <b>Iniciar session</b> que se encuentra
+                    en la esquina superior derecha e ingrese sus credenciales.</p>
             </div>
         </div>
     </div>
-    <!-- end of left_content -->
-    <div class="right_content">
-        <div class="center_text">
-            <h1>
-                Avisos</h1>
-            <ol class="commentlist">
-                <li class="alt"><cite>
+</div>
+<!-- end of left_content -->
+<div class="right_content">
+    <div class="center_text">
+        <h1>
+            Avisos</h1>
+        <ol class="commentlist">
+            <li class="alt"><cite>
                     <img alt="" src="/img/note pinned.png"/>Erwin Says:
                     <br />
                     <span class="comment-data">Comments are great!</span> </cite></li>
-                <li><cite>
+            <li><cite>
                     <img alt="" src="/img/note pinned.png" />admin Says:
                     <br />
                     <span class="comment-data">ALorem ipsum dolor sit amet, consectetuer adipiscing elit.
                         Donec libero.Suspendisse bibendum. </span></cite></li>
-            </ol>
-            <h1>
-                Ultimas noticias</h1>
-            <ol class="commentlist">
-                <li class="alt"><cite>
+        </ol>
+        <h1>
+            Ultimas noticias</h1>
+        <ol class="commentlist">
+            <li class="alt"><cite>
                     <img alt="" src="/img/newspaper.png" />Erwin Says:
                     <br />
                     <span class="comment-data">Comments are great!</span> </cite></li>
-                <li><cite>
+            <li><cite>
                     <img alt="" src="/img/newspaper.png" />admin Says:
                     <br />
                     <span class="comment-data">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                         Donec libero.</span> </cite></li>
-            </ol>
-        </div>
+        </ol>
     </div>
-    <!-- end of right_content -->
 </div>
-<!-- end of main_content -->
+<!-- end of right_content -->
