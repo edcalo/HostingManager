@@ -1,4 +1,4 @@
-Ext.define('Hosting.view.server.Form', {
+Ext.define('labinfsis.hosting.view.server.Form', {
     extend: 'Ext.window.Window',
     alias : 'widget.serverform',
     title : 'Registrar servidor',
@@ -27,27 +27,44 @@ Ext.define('Hosting.view.server.Form', {
                 layout:'column',                
                 items:[{
                     xtype: 'container',
-                    columnWidth:.65,
+                    columnWidth:.35,
                     layout: 'anchor',
                     items: [{
                         xtype: 'textfield',
                         name : 'server_name',
-                        fieldLabel: 'Identificador',
+                        fieldLabel: 'Nombre',
                         msgTarget: 'side',
                         allowBlank: false,
                         anchor:'95%'
                     }]
                 },{
                     xtype: 'container',
-                    columnWidth:.35,
+                    columnWidth:.65,
                     layout: 'anchor',
                     items: [{
+                        xtype: 'textfield',
+                        name : 'fqdn',
+                        fieldLabel: 'Nombre de dominio completo',
+                        msgTarget: 'side',
+                        allowBlank: false,
+                        anchor:'100%'
+                    }]
+                }]
+            },{
+                xtype: 'container',
+                layout:'column',                
+                items:[{
+                    xtype: 'container',
+                    columnWidth:.55,
+                    layout: 'anchor',
+                    items: [{                        
                         xtype: 'combo',
                         fieldLabel: 'Funcionalidad',
                         valueField: 'field',
                         displayField: 'label',
                         value: 'mail',
                         editable: false,
+                        anchor:'90%',
                         store: Ext.create('Ext.data.Store', {
                             fields: ['field', 'label'],
                             proxy : {
@@ -72,70 +89,90 @@ Ext.define('Hosting.view.server.Form', {
                                     field: 'proxy'
                                 }]
                             }
-                        })
+                        })                        
+                    }]
+                },{
+                    columnWidth:.45,
+                    xtype: 'container',
+                    anchor: '100%',
+                    defaults: {
+                        anchor: '100%',
+                        layout: {
+                            type: 'hbox'
+                        }
+                    },
+                    items: [{
+                        xtype: 'fieldcontainer',
+                        combineErrors: true,
+                        fieldLabel: 'Direccion IPv4 del servidor y puerto',
+                        msgTarget: 'side',
+                        defaults: {
+                            hideLabel: true,
+                            allowBlank: false
+                        },
+                        items: [{
+                            xtype: 'textfield',    
+                            fieldLabel: 'Phone 1', 
+                            name: 'phone-1', 
+                            width: 29,
+                        },{
+                            xtype: 'displayfield', 
+                            value: '.'
+                        },{
+                            xtype: 'textfield',    
+                            fieldLabel: 'Phone 2', 
+                            name: 'phone-2', 
+                            width: 29                            
+                        },{
+                            xtype: 'displayfield', 
+                            value: '.'
+                        },{
+                            xtype: 'textfield',    
+                            fieldLabel: 'Phone 2', 
+                            name: 'phone-3', 
+                            width: 29
+                        },{
+                            xtype: 'displayfield', 
+                            value: '.'
+                        },{
+                            xtype: 'textfield',    
+                            fieldLabel: 'Phone 2', 
+                            name: 'phone-4', 
+                            width: 29, 
+                            allowBlank: false
+                        },{
+                            xtype: 'displayfield', 
+                            value: ':'
+                        },{
+                            xtype: 'textfield',    
+                            fieldLabel: 'Phone 3', 
+                            name: 'phone-3', 
+                            width: 48
+                        }
+                        ]
                     }]
                 }]
             },{
-                xtype: 'fieldcontainer',
-                fieldLabel: 'Direccion IP del Servidor',
-                combineErrors: true,
-                msgTarget: 'side',
-                layout: 'hbox',
-                anchor:'90%',
-                defaults: {
-                    flex: 1,
-                    hideLabel: true
-                },
-                items: [{
-                    xtype: 'textfield',
-                    fieldLabel: 'XXX',
-                    name: 'xxx-1',
-                    width: 29,
-                    allowBlank: false
-                },{
-                    xtype: 'displayfield',
-                    value: '.'
-                },{
-                    xtype: 'textfield',
-                    fieldLabel: 'XXX',
-                    name: 'xxx-2',
-                    width: 29,
-                    allowBlank: false,
-                    margins: '0 5 0 0'
-                },{
-                    xtype: 'displayfield',
-                    value: '.'
-                },{
-                    xtype: 'textfield',
-                    fieldLabel: 'XXX',
-                    name: 'xxx-3',
-                    width: 29,
-                    allowBlank: false
-                },{
-                    xtype: 'displayfield',
-                    value: ':'
-
-                },{
-                    xtype: 'textfield',
-                    fieldLabel: 'Puerto',
-                    name: 'port',
-                    width: 29,
-                    allowBlank: false
-                }]
-            },{
-                xtype: 'textfield',
-                name : 'description',
-                fieldLabel: '<br />Nombre del servidor',
+                xtype: 'htmleditor',
+                name : 'server_description',
+                fieldLabel: 'Descripción',
                 msgTarget: 'side',
                 allowBlank: false,
                 anchor:'100%'
+            },{
+                xtype: 'label',
+                forId: 'members',
+                html: '<br>Mienbros',
+                style: {
+                    paddingTop:'10px'
+                }
             },{
                 anchor: '100%',
                 xtype: 'itemselector',
                 buttons:['add', 'remove'],
                 msgTarget: 'side',
                 name : 'members',
-                fieldLabel: '<br />Seleccione el o los usuarios que tienen habilitada(s) su(s) cuenta(s) en este servidor',
+                fieldLabel: 'Seleccione el o los usuarios que tienen habilitada(s) su(s) cuenta(s) en este servidor',
                 allowBlank: false,
                 store: Ext.data.StoreManager.lookup('Accounts'),
                 displayField: 'userid',

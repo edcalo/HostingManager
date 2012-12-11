@@ -1,6 +1,6 @@
-Ext.define('Hosting.store.Accounts', {
+Ext.define('labinfsis.hosting.store.Accounts', {
     extend: 'Ext.data.Store',
-    model: 'Hosting.model.Account',
+    model: 'labinfsis.hosting.model.Account',
     autoLoad: true,
     proxy: {
         type: 'ajax',

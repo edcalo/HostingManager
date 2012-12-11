@@ -1,4 +1,4 @@
-Ext.define('Hosting.model.Server', {
+Ext.define('labinfsis.hosting.model.Server', {
     extend: 'Ext.data.Model',
     fields: [{
         name:'id',

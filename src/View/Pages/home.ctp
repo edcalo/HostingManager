@@ -15,6 +15,7 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+echo $this->Html->css('http://localhost/libs/extjs-4.1.1/examples/ux/css/ItemSelector.css', 'stylesheet', array('inline' => false));
 echo $this->Html->script("app");
 ?>
 

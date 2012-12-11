@@ -1,4 +1,4 @@
-Ext.define('Hosting.view.server.List' ,{
+Ext.define('labinfsis.hosting.view.server.List' ,{
     extend: 'Ext.window.Window',
     alias : 'widget.serverlist',
     layout: 'fit',

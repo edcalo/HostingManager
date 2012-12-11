@@ -3,7 +3,7 @@ Ext.Loader.setConfig({
 });
 Ext.Loader.setPath('Ext.ux', 'http://localhost/libs/extjs-4.1.1/examples/ux');
 Ext.application({
-    name: 'Hosting',
+    name: 'labinfsis.hosting',
     appFolder: 'js/app/hosting',
     controllers: [
         'Accounts',
@@ -130,3 +130,68 @@ Ext.application({
         });
     }
 });
+
+/*
+ {
+                    xtype: 'container',
+                    columnWidth:.45,
+                    layout: 'anchor',
+                    items: [{
+                        xtype: 'fieldcontainer',
+                        fieldLabel: 'Direccion IP del Servidor',
+                        combineErrors: true,
+                        msgTarget: 'side',
+                        anchor:'90%',
+                        defaults: {
+                            hideLabel: true
+                        },
+                        items: [{
+                            xtype: 'textfield',
+                            fieldLabel: 'XXX',
+                            name: 'xxx-1',
+                            width: 29,
+                            allowBlank: false
+                        },{
+                            xtype: 'displayfield',
+                            value: '.'
+                        },{
+                            xtype: 'textfield',
+                            fieldLabel: 'XXX',
+                            name: 'xxx-2',
+                            width: 29,
+                            allowBlank: false,
+                            margins: '0 5 0 0'
+                        },{
+                            xtype: 'displayfield',
+                            value: '.'
+                        },{
+                            xtype: 'textfield',
+                            fieldLabel: 'XXX',
+                            name: 'xxx-3',
+                            width: 29,
+                            allowBlank: false
+                        },{
+                            xtype: 'displayfield',
+                            value: '.'
+                        },{
+                            xtype: 'textfield',
+                            fieldLabel: 'XXX',
+                            name: 'xxx-4',
+                            width: 29,
+                            allowBlank: false
+                        },{
+                            xtype: 'displayfield',
+                            value: ':'
+
+                        },{
+                            xtype: 'textfield',
+                            fieldLabel: 'Puerto',
+                            name: 'port',
+                            width: 40,
+                            allowBlank: false
+                        }]
+                    }]   
+                }]
+            }
+ 
+ **/

@@ -1,4 +1,4 @@
-Ext.define('Hosting.view.account.List' ,{
+Ext.define('labinfsis.hosting.view.account.List' ,{
     extend: 'Ext.grid.Panel',
     store: 'Accounts',
     alias : 'widget.accountlist',

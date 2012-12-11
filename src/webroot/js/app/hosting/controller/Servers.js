@@ -1,4 +1,4 @@
-Ext.define('Hosting.controller.Servers', {
+Ext.define('labinfsis.hosting.controller.Servers', {
     extend: 'Ext.app.Controller',
     stores: [
         'Servers'
