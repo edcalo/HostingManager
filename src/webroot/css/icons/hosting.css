@@ -1,0 +1,63 @@
+/* 
+    Document   : hosting
+    Created on : 14-12-2012, 12:08:01 PM
+    Author     : elvis.caceres
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.icon-server {
+    background-image:url("../../img/icons/hosting/server/server.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+.icon-add-server {
+    background-image:url("../../img/icons/hosting/server/server_add.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+.icon-edit-server {
+    background-image:url("../../img/icons/hosting/server/server_edit.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+.icon-delete-server {
+    background-image:url("../../img/icons/hosting/server/server_delete.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+.icon-information-server {
+    background-image:url("../../img/icons/hosting/server/server_information.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+.icon-statistics-server {
+    background-image:url("../../img/icons/hosting/server/server_chart.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+.icon-diagnosis-server {
+    background-image:url("../../img/icons/hosting/server/server_error.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+.icon-services {
+    background-image:url("../../img/icons/hosting/gear_in.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+.icon-add-service {
+    background-image:url("../../img/icons/hosting/service/cog_add.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+.icon-edit-service {
+    background-image:url("../../img/icons/hosting/service/cog_edit.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+.icon-delete-service {
+    background-image:url("../../img/icons/hosting/service/cog_delete.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}

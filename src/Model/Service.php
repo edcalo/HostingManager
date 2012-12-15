@@ -1,19 +1,18 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Server Model
+ * Service Model
  *
- * @property Account $Account
- * @property Service $Service
+ * @property Server $Server
  */
-class Server extends AppModel {
+class Service extends AppModel {
 
 /**
  * Display field
  *
  * @var string
  */
-	public $displayField = 'server_name';
+	public $displayField = 'service_name';
 
 /**
  * Validation rules
@@ -21,7 +20,7 @@ class Server extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'server_name' => array(
+		'service_name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -31,9 +30,9 @@ class Server extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'is_active' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+		'service_port' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -51,26 +50,11 @@ class Server extends AppModel {
  * @var array
  */
 	public $hasAndBelongsToMany = array(
-		'Account' => array(
-			'className' => 'Account',
-			'joinTable' => 'accounts_servers',
-			'foreignKey' => 'server_id',
-			'associationForeignKey' => 'account_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
-		),
-		'Service' => array(
-			'className' => 'Service',
+		'Server' => array(
+			'className' => 'Server',
 			'joinTable' => 'servers_services',
-			'foreignKey' => 'server_id',
-			'associationForeignKey' => 'service_id',
+			'foreignKey' => 'service_id',
+			'associationForeignKey' => 'server_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',

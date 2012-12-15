@@ -7,13 +7,17 @@ Ext.application({
     appFolder: 'js/app/hosting',
     controllers: [
         'Accounts',
-        'Servers'
+        'Servers',
+        'Services'
     ],
-    listGroups: function(){
-        var groups = Ext.widget('serverlist');
-        groups.show();
+    listarServidores: function(){
+        var servidores = Ext.widget('serverlist');
+        servidores.show();
     },
-    
+    listarServicios: function(){
+       var servicios = Ext.widget('services');
+        servicios.show(); 
+    },    
     launch: function() {
         var panelInicio = Ext.create('Ext.Panel', {
             id: 'home',
@@ -22,7 +26,7 @@ Ext.application({
             bodyStyle: 'background-color: transparent',
             autoScroll: true
         });
-        var panel_ftp=Ext.create('Ext.Panel',{
+        var panel_cuentas=Ext.create('Ext.Panel',{
             title: 'Lista de Cuentas',
             layout: 'border',
             items:[{
@@ -64,24 +68,9 @@ Ext.application({
                         scale: 'large',
                         iconAlign: 'top'
                     }]
-                },{
-                    xtype: 'buttongroup',
-                    defaults:{
-                        scale: 'large',
-                        iconAlign: 'top'
-                    },
-                    items:[{
-                        text: 'Buscar',                        
-                        iconCls: 'icon-buscar-aux'
-                    },{
-
-                        text: 'Ordenar',
-                        iconCls:'icon-ordenar-aux',
-                        handler: this.listGroups
-                    }]
                 }]
             },{
-                title: 'Configuracion de fuente de datos',
+                title: 'Configuracion',
                 xtype: 'buttongroup',
                 columns: 4,
                 defaults:{
@@ -95,18 +84,14 @@ Ext.application({
                         iconAlign: 'top'
                     },
                     items:[{
-                        text: 'Gestiones',                        
-                        iconCls: 'icon-gestion-32'
-                    },{
-                        text: 'Turnos',
-                        iconCls: 'icon-turno-32'
-                    },{
-                        text: 'Unidades',
-                        iconCls:'icon-unidad-32'
-                    }, {
-                        text: 'Cargos',
-                        iconCls:'icon-cargos-32'
 
+                        text: 'Servidores',
+                        iconCls:'icon-server',
+                        handler: this.listarServidores
+                    },{
+                        text: 'Servicios',                        
+                        iconCls: 'icon-services',
+                        handler: this.listarServicios
                     }]
                 }]
             }]
@@ -114,7 +99,7 @@ Ext.application({
         var panelPrincipal = Ext.create('Ext.tab.Panel', {
             region: 'center',
             id: 'main',
-            items: [panelInicio, panel_ftp]
+            items: [panelInicio, panel_cuentas]
         });
 
         Ext.create('Ext.container.Viewport', {
@@ -130,68 +115,3 @@ Ext.application({
         });
     }
 });
-
-/*
- {
-                    xtype: 'container',
-                    columnWidth:.45,
-                    layout: 'anchor',
-                    items: [{
-                        xtype: 'fieldcontainer',
-                        fieldLabel: 'Direccion IP del Servidor',
-                        combineErrors: true,
-                        msgTarget: 'side',
-                        anchor:'90%',
-                        defaults: {
-                            hideLabel: true
-                        },
-                        items: [{
-                            xtype: 'textfield',
-                            fieldLabel: 'XXX',
-                            name: 'xxx-1',
-                            width: 29,
-                            allowBlank: false
-                        },{
-                            xtype: 'displayfield',
-                            value: '.'
-                        },{
-                            xtype: 'textfield',
-                            fieldLabel: 'XXX',
-                            name: 'xxx-2',
-                            width: 29,
-                            allowBlank: false,
-                            margins: '0 5 0 0'
-                        },{
-                            xtype: 'displayfield',
-                            value: '.'
-                        },{
-                            xtype: 'textfield',
-                            fieldLabel: 'XXX',
-                            name: 'xxx-3',
-                            width: 29,
-                            allowBlank: false
-                        },{
-                            xtype: 'displayfield',
-                            value: '.'
-                        },{
-                            xtype: 'textfield',
-                            fieldLabel: 'XXX',
-                            name: 'xxx-4',
-                            width: 29,
-                            allowBlank: false
-                        },{
-                            xtype: 'displayfield',
-                            value: ':'
-
-                        },{
-                            xtype: 'textfield',
-                            fieldLabel: 'Puerto',
-                            name: 'port',
-                            width: 40,
-                            allowBlank: false
-                        }]
-                    }]   
-                }]
-            }
- 
- **/

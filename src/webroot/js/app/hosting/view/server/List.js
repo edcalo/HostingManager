@@ -39,7 +39,7 @@ Ext.define('labinfsis.hosting.view.server.List' ,{
                 '<tpl for=".">',
                 '<div class="thumb-wrap <tpl if="save == 0">icon-error</tpl> <tpl if="save == 2">icon-ok</tpl>">',
                 '<div class="thumb">',
-                (!Ext.isIE6? '<img src="img/ftp/generic_server.png" />' : '<div style="width:74px;height:74px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'img/ftp/generic_server.png\')"></div>'),
+                (!Ext.isIE6? '<img src="/img/icons/hosting/server/generic_server.png" />' : '<div style="width:74px;height:74px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'img/ftp/generic_server.png\')"></div>'),
                 '</div>',
                 '<span>{server_name}</span>',
                 '</div>',

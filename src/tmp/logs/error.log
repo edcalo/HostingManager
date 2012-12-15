@@ -1,0 +1,261 @@
+2012-12-04 19:47:48 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\hosting_manager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-07 02:23:54 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-07 02:23:54 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-07 02:26:01 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-07 02:26:01 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-07 02:27:58 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-07 02:27:58 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-07 02:33:59 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-07 02:33:59 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-08 17:21:57 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-08 17:31:31 Error: [MissingControllerException] Controller class AddController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-12 20:01:44 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:56:11 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:56:22 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:56:22 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:56:22 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:56:22 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:56:22 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:56:22 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:56:22 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:57:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:57:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:57:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:57:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:57:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:57:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 16:57:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:02:18 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:11:48 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:12:58 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:13:52 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:13:52 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:13:52 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:13:52 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:13:52 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:13:52 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:13:52 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:15:37 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:17:10 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:20:49 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 17:25:40 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 19:40:06 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(459): PDOStatement->execute(Array)
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(425): DboSource->_execute('INSERT INTO `ho...', Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(1007): DboSource->execute('INSERT INTO `ho...')
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Model.php(1730): DboSource->create(Object(Service), Array, Array)
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\Controller\ServicesController.php(43): Model->save(Array)
+#5 [internal function]: ServicesController->add()
+#6 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(ServicesController), Array)
+#7 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#9 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2012-12-14 21:43:32 Error: [NotFoundException] Invalid service
+#0 [internal function]: ServicesController->edit()
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(ServicesController), Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-14 22:54:57 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 22:56:24 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 22:56:52 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 22:57:12 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-14 23:11:06 Error: [MissingControllerException] Controller class UploadImageController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-15 00:58:51 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-15 00:59:56 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-15 01:09:08 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-15 01:09:59 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-15 01:14:29 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-15 01:14:37 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-15 01:16:03 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-15 01:16:37 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-15 01:24:52 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-15 01:27:04 Error: Fatal Error (1): Unsupported operand types in [C:\xampp\cakephp-2.2.3\lib\Cake\View\Helper\HtmlHelper.php, line 410]
+2012-12-15 01:27:04 Error: [FatalErrorException] Unsupported operand types
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Unsupported ope...', 'C:\xampp\cakeph...', 410)
+#1 [internal function]: ErrorHandler::handleError(1, 'Unsupported ope...', 'C:\xampp\cakeph...', 410, Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Unsupported ope...', 'C:\xampp\cakeph...', 410, Array)
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-12-15 01:27:33 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-15 01:47:09 Error: [MissingControllerException] Controller class PersonasController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-15 01:51:35 Error: [MissingViewException] View file "D:\elvis.caceres\Dropbox\My projects\HostingManager\src\View\Services\upload.ctp" is missing.
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\View\View.php(473): View->_getViewFileName(NULL)
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(956): View->render(NULL, NULL)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-15 01:53:08 Error: [MissingViewException] View file "D:\elvis.caceres\Dropbox\My projects\HostingManager\src\View\Services\upload.ctp" is missing.
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\View\View.php(473): View->_getViewFileName(NULL)
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(956): View->render(NULL, NULL)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-15 02:41:15 Error: [NotFoundException] Invalid service
+#0 [internal function]: ServicesController->edit()
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(ServicesController), Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-15 02:50:10 Error: [NotFoundException] Invalid service
+#0 [internal function]: ServicesController->delete()
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(ServicesController), Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-15 02:50:37 Error: [NotFoundException] Invalid service
+#0 [internal function]: ServicesController->delete()
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(ServicesController), Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-15 02:50:40 Error: [NotFoundException] Invalid service
+#0 [internal function]: ServicesController->delete()
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(ServicesController), Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-15 02:50:41 Error: [NotFoundException] Invalid service
+#0 [internal function]: ServicesController->delete()
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(ServicesController), Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-15 02:50:49 Error: [NotFoundException] Invalid service
+#0 [internal function]: ServicesController->delete()
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(ServicesController), Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-15 02:51:16 Error: [NotFoundException] Invalid service
+#0 [internal function]: ServicesController->delete()
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(ServicesController), Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

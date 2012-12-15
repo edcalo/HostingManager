@@ -12,21 +12,21 @@
 */
 /* compartidos */
 .icon-add{
-    background-image: url(../img/shared/add16x16.png) !important;
+    background-image: url("../img/shared/add16x16.png") !important;
 }
 
 .icon-formulario-add {
-    background-image:url(../img/shared/application-form-add16x16.png) !important;
+    background-image:url("../img/shared/application-form-add16x16.png") !important;
 }
 .icon-edit{
-    background-image: url(../img/shared/pencil16x16.png) !important;
+    background-image: url("../img/shared/pencil16x16.png") !important;
 }
 .icon-formulario-edit {
-    background-image:url(../img/shared/application-form-edit16x16.png) !important;
+    background-image:url("../img/shared/application-form-edit16x16.png") !important;
 }
 
 .icon-delete{
-    background-image: url(../img/shared/delete16x16.png) !important;
+    background-image: url("../img/shared/delete16x16.png") !important;
 }
 .icon-error{
     background-image: url(../img/shared/exclamation16x16.gif) !important;
@@ -167,36 +167,6 @@
 /*
     iconos 32x32
 */
-.icon-add-server {
-    background-image:url(../img/ftp/server_add.png) !important;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-}
-.icon-edit-server {
-    background-image:url(../img/ftp/server_edit.png) !important;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-}
-.icon-delete-server {
-    background-image:url(../img/ftp/server_delete.png) !important;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-}
-.icon-information-server {
-    background-image:url(../img/ftp/server_information.png) !important;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-}
-.icon-statistics-server {
-    background-image:url(../img/ftp/server_chart.png) !important;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-}
-.icon-diagnosis-server {
-    background-image:url(../img/ftp/server_error.png) !important;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-}
 /* para sca */
 .icon-add-aux {
     background-image:url(../img/scp/add-user.png) !important;

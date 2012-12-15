@@ -20,7 +20,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-        <title>Fundacion Simon I. Pati&ntilde;o - <?php echo $title_for_layout; ?></title>
+        <title>Sistema de Admisnitracion Integrado - <?php echo $title_for_layout; ?></title>
 
         <link href="/img/sistemas.ico" rel="icon" type="image/png"  />
         <!--[if IE]>
@@ -33,8 +33,6 @@
 
         echo $this->Html->css('application');
         echo $this->Html->css('iconos');
-        echo $this->Html->css('chooser');
-        //echo $this->Html->meta('icon');
 
         echo $this->fetch('meta');
         echo $this->fetch('css');
@@ -45,7 +43,7 @@
         <div id="container">
             <div id="header">
                 <div class="title">
-                    Sistema de informacion de la Fundacion Simon I. Pati&ntilde;o
+                    Sistema de Admisnitracion Integrado
                 </div>
             </div>
             <div id="content">
@@ -55,7 +53,7 @@
             </div>
             <div id="footer">
                 <div style="float: left; padding-top: 10px;">
-                    Fundacion Sim&oacute;n I. Pati&ntilde;o &copy; - Todos los derechos reservados 2012
+                    edcalo &copy; - Todos los derechos reservados 2012
                 </div>
             </div>
         </div>
