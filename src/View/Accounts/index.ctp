@@ -1,7 +1,10 @@
 <?php
 $datos = array();
+//print_r($accounts);
 foreach ($accounts as $account) {
-    array_push($datos,$ftp_user['Account']);
+    $account['Account']['email'] = $account['User']['email'];
+    $account['Account']['is_saved'] = true;
+    array_push($datos,$account['Account']);
 }
 $respuesta = array(
     'success' => true,

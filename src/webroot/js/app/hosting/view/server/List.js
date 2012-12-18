@@ -1,6 +1,6 @@
 Ext.define('labinfsis.hosting.view.server.List' ,{
     extend: 'Ext.window.Window',
-    alias : 'widget.serverlist',
+    alias : 'widget.servers',
     layout: 'fit',
     autoShow: true,
     modal:true,
@@ -24,7 +24,7 @@ Ext.define('labinfsis.hosting.view.server.List' ,{
             }
         }
         this.items=[{
-            id: 'listaservidores',
+            id: 'list-servers',
             singleSelect: true,
             overItemCls: 'x-view-over',
             itemSelector: 'div.thumb-wrap',
@@ -37,15 +37,21 @@ Ext.define('labinfsis.hosting.view.server.List' ,{
             tpl: [
                 // '<div class="details">',
                 '<tpl for=".">',
-                '<div class="thumb-wrap <tpl if="save == 0">icon-error</tpl> <tpl if="save == 2">icon-ok</tpl>">',
+                '<div class="thumb-wrap <tpl if="is_saved == false">icon-error</tpl> <tpl if="is_saved == true">icon-ok</tpl>" data-qtip="<b>Nombre:</b> {server_name} <br ><b>Descripción:</b>{server_description}">',
                 '<div class="thumb">',
-                (!Ext.isIE6? '<img src="/img/icons/hosting/server/generic_server.png" />' : '<div style="width:74px;height:74px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'img/ftp/generic_server.png\')"></div>'),
+                (!Ext.isIE6? '<img src="/img/icons/hosting/server/generic_server.png" />' : '<div style="width:74px;height:74px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'/img/icons/hosting/server/generic_server.png\')"></div>'),
                 '</div>',
-                '<span>{server_name}</span>',
+                '<span>{serverShortName}</span>',
                 '</div>',
                 '</tpl>'
                 // '</div>'
-            ]
+            ],
+            prepareData: function(data) {
+                Ext.apply(data, {
+                    serverShortName: Ext.util.Format.ellipsis(data.server_name, 10)
+                });
+                return data;
+            }
         }];
         
         this.tbar =[{
@@ -57,7 +63,7 @@ Ext.define('labinfsis.hosting.view.server.List' ,{
                 items:{
                     scale: 'large',
                     text: 'Registrar',
-                    action: 'addserver',
+                    action: 'add',
                     iconAlign: 'top',
                     iconCls: 'icon-add-server'
                 }
@@ -70,12 +76,12 @@ Ext.define('labinfsis.hosting.view.server.List' ,{
                 items:[{
                     text: 'Modificar',
                     iconCls: 'icon-edit-server',
-                    action: 'editserver',
+                    action: 'edit',
                     disabled:true
                 },{
                     text: 'Eliminar',
                     iconCls:'icon-delete-server',
-                    action:'deleteserver',
+                    action:'delete',
                     disabled:true
                 }]
             },{
@@ -105,49 +111,22 @@ Ext.define('labinfsis.hosting.view.server.List' ,{
                 items:[{
                     text: 'Informaci&oacute;n',
                     iconCls: 'icon-information-server',
-                    action:'infoserver',
+                    action:'info',
                     disabled:true
                 },{
                     text: 'Estadisticas',
                     iconCls: 'icon-statistics-server',
-                    action:'statisticsserver',
+                    action:'statistics',
                     disabled:true
                 },{
                     text: 'Visor de eventos',
                     iconCls:'icon-diagnosis-server',
-                    action:'eventviewerserver',
+                    action:'eventviewer',
                     disabled:true
                 }]
             }]
         }];
         this.bbar=[{
-            xtype: 'combo',
-            fieldLabel: 'Ordenar por',
-            labelWidth: 70,
-            valueField: 'field',
-            displayField: 'label',
-            editable: false,
-            width:170,
-            store: Ext.create('Ext.data.Store', {
-                fields: ['field', 'label'],
-                sorters: 'type',
-                proxy : {
-                    type: 'memory',
-                    data  : [{
-                        label: 'Nombre',
-                        field: 'groupname'
-                    }, {
-                        label: 'Tipo',
-                        field: 'type'
-                    }]
-                }
-            }),
-            value: 'type',
-            listeners: {
-                scope : this,
-                select: this.sort
-            }
-        }, '-',{
             xtype: 'textfield',
             name : 'filter',
             fieldLabel: 'Buscar',
@@ -169,7 +148,7 @@ Ext.define('labinfsis.hosting.view.server.List' ,{
         dataview.getSelectionModel().clearSelections();
         store.resumeEvents();
         store.filter({
-            property: 'groupname',
+            property: 'server_name',
             anyMatch: true,
             value   : newValue
         });
@@ -181,11 +160,11 @@ Ext.define('labinfsis.hosting.view.server.List' ,{
     },
 
     selectChange: function(dataview, selections ){
-        var bedit = this.down('button[action=editserver]');
-        var bdelete = this.down('button[action=deleteserver]');
-        var bdinfo = this.down('button[action=infoserver]');
-        var bdviewer = this.down('button[action=eventviewerserver]');
-        var bdstatistic = this.down('button[action=statisticsserver]');
+        var bedit = this.down('button[action=edit]');
+        var bdelete = this.down('button[action=delete]');
+        var bdinfo = this.down('button[action=info]');
+        var bdviewer = this.down('button[action=eventviewer]');
+        var bdstatistic = this.down('button[action=statistics]');
         if(selections.length > 0){
             bdelete.enable();
             bdstatistic.enable();

@@ -23,16 +23,16 @@
     margin-left: 10px;
 }
 
-#listaservidores, #list-services{
+#list-servers, #list-services{
     background: white;
     font: 11px Arial, Helvetica, sans-serif;
 }
 
-#listaservidores .thumb, #list-services.thumb {
+#list-servers .thumb, #list-services.thumb {
     padding: 3px;
 }
 
-#listaservidores .thumb-wrap, #list-services .thumb-wrap {
+#list-servers .thumb-wrap, #list-services .thumb-wrap {
     float: left;
     margin: 10px;
     margin-right: 0;
@@ -42,34 +42,34 @@
     background-position: top right;
 }
 
-#listaservidores .thumb-wrap span, #list-services .thumb-wrap span {
+#list-servers .thumb-wrap span, #list-services .thumb-wrap span {
     display: block;
     overflow: hidden;
     text-align: center;
 
 }
 
-#listaservidores .x-view-over, #list-services .x-view-over {
+#list-servers .x-view-over, #list-services .x-view-over {
     border:1px solid #dddddd;
     background-color: #efefef;
     
 }
 
-#listaservidores .x-item-selected, #list-services .x-item-selected {
+#list-servers .x-item-selected, #list-services .x-item-selected {
     background-color: #DFEDFF;
     border: 1px solid #6593cf;
 
 }
 
-#listaservidores .x-item-selected .thumb, #list-services .x-item-selected .thumb {
+#list-servers .x-item-selected .thumb, #list-services .x-item-selected .thumb {
     background:transparent;
 }
 
-#listaservidores .x-item-selected span, #list-services .x-item-selected span {
+#list-servers .x-item-selected span, #list-services .x-item-selected span {
     color:#1A4D8F;
 }
 
-#listaservidores .loading-indicator, #list-services .loading-indicator {
+#list-servers .loading-indicator, #list-services .loading-indicator {
     font-size:11px;
     background-image:url('../../resources/images/grid/loading.gif');
     background-repeat: no-repeat;

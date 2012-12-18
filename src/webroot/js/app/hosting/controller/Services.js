@@ -88,11 +88,16 @@ Ext.define('labinfsis.hosting.controller.Services', {
                 record.set(values);
                 this.getServicesStore().insert(0, record);
             }else{
+                record.set('is_saved', false);
                 record.set(values);
             }
         
             win.close();
-            this.getServicesStore().sync();
+            this.getServicesStore().sync({
+                success: function(optional){
+                    record.set('is_saved', true);
+                }
+            });
         }
     }
 

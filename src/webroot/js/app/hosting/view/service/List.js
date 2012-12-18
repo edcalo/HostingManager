@@ -7,7 +7,7 @@ Ext.define('labinfsis.hosting.view.service.List' ,{
     width: 520,
     height: 415,
     iconCls:'icon-list',
-    title: 'Lista de Sservicios ',
+    title: 'Lista de Servicios ',
     initComponent: function() {
         var sm = Ext.create('Ext.selection.CheckboxModel',{
             listeners:{
@@ -37,15 +37,21 @@ Ext.define('labinfsis.hosting.view.service.List' ,{
             tpl: [
                 // '<div class="details">',
                 '<tpl for=".">',
-                '<div class="thumb-wrap <tpl if="is_saved == \'true\'">icon-ok</tpl> <tpl if="is_saved == \'false\'">icon-error</tpl>" data-qtip="{service_description}">',
+                '<div class="thumb-wrap <tpl if="is_saved == true">icon-ok</tpl> <tpl if="is_saved == false">icon-error</tpl>" data-qtip="<b>Nombre:</b> {service_name} <br ><b>Descripción:</b>{service_description}">',
                 '<div class="thumb" style="padding:10px;">',
                 (!Ext.isIE6? '<img src="/img/icons/hosting/service/{image}" />' : '<div style="width:74px;height:74px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'img/icons/hosting/service/{imgage}\')"></div>'),
                 '</div>',
-                '<span>{service_name}</span>',
+                '<span>{serviceShortName}</span>',
                 '</div>',
                 '</tpl>'
                 // '</div>'
-            ]
+            ],
+            prepareData: function(data) {
+                Ext.apply(data, {
+                    serviceShortName: Ext.util.Format.ellipsis(data.service_name, 10)
+                });
+                return data;
+            }
         }];
         
         this.tbar =[{

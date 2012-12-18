@@ -2,6 +2,14 @@ Ext.Loader.setConfig({
     enabled: true
 });
 Ext.Loader.setPath('Ext.ux', 'http://localhost/libs/extjs-4.1.1/examples/ux');
+Ext.apply(Ext.form.field.VTypes, {
+    ipv4:  function(v) {
+        var ip =/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/;
+        return ip.test(v);
+    },
+    ipv4Text: 'Must be a numeric IP address',
+    ipv4Mask: /[\d\.]/i
+});
 Ext.application({
     name: 'labinfsis.hosting',
     appFolder: 'js/app/hosting',
@@ -11,7 +19,7 @@ Ext.application({
         'Services'
     ],
     listarServidores: function(){
-        var servidores = Ext.widget('serverlist');
+        var servidores = Ext.widget('servers');
         servidores.show();
     },
     listarServicios: function(){

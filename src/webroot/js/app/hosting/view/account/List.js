@@ -10,13 +10,13 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
         Ext.create('Ext.grid.RowNumberer'),
         {
             header: 'Nombre',
-            dataIndex: 'name'
+            dataIndex: 'account_name'
         },{
             header: 'Email',
             dataIndex: 'email'
         },{
             header: 'UserID',
-            dataIndex: 'userid'
+            dataIndex: 'user_id'
         },{
             header: 'Group',
             dataIndex: 'gid'
@@ -28,7 +28,7 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
             dataIndex: 'expired'
         },{
             header: 'HomeDir',
-            dataIndex: 'homedir'
+            dataIndex: 'home_dir'
         },{
             header: 'Accessed',
             dataIndex: 'accessed'

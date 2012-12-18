@@ -17,7 +17,9 @@ class ServicesController extends AppController {
     public function index() {
         $this->layout = 'ajax';
         $this->Service->recursive = 0;
-        $this->set('services', $this->paginate());
+        $this->set('services', $this->Service->find('all', array(
+            'conditions' => array('Service.is_delete' => false)
+        )));
     }
 
     /**
@@ -47,7 +49,6 @@ class ServicesController extends AppController {
             $this->request->data = array('Service' => (array) $datos);
             if ($this->Service->save($this->request->data)) {
                 $this->set('guardado', 1);
-                //print_r($this->data);
                 $this->request->data['Service']['id'] = $this->Service->id;
             } else {
                 $this->set('guardado', 0);
@@ -85,6 +86,7 @@ class ServicesController extends AppController {
                 }
             }
             $this->request->data = $resp;
+            $this->set('services', $this->Service->find('all'));
         }
         $this->set('update', $success);
     }
@@ -97,18 +99,22 @@ class ServicesController extends AppController {
      * @param string $id
      * @return void
      */
-    public function delete($id = null) {
+    public function delete() {
         $this->layout = 'ajax';
-        $grupo = json_decode(stripslashes($this->request->data));
-        if (count($grupo) == 1) {
-            $result = $this->Service->delete($grupo->id);
-            $this->set('eliminado', $result);
+        $services = json_decode(stripslashes($this->request->data));
+        if (count($services) == 1) {
+            $services = array('Service' => (array) $services);
+            $services['Service']['is_delete'] = true;
+            $result = $this->Service->save($services);
+            $this->set('delete', $result);
         } else {
             $result = true;
-            foreach ($grupo as $g) {
-                $result = ($result and $this->Service->delete($g->id));
+            foreach ($services as $dato_service) {
+                $service = array('Service' => (array) $dato_service);
+                $service['Service']['is_delete'] = true;
+                $result = ($result and $this->Service->save($service));
             }
-            $this->set('eliminado', $result);
+            $this->set('delete', $result);
         }
     }
 

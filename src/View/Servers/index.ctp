@@ -1,14 +1,15 @@
 <?php
-$datos = array();
-foreach ($servers as $server) {
-    //$server['Server']['id']=$server['Server']['gid'];
-    $server['Server']['save']=1;
-    array_push($datos,$server['Server']);
-}
-$respuesta = array(
-    'success' => true,
-    'total' => count($datos),
-    'data' => $datos
-);
-echo json_encode($respuesta);
+    $datos = array();
+    foreach ($servers as $server) {
+        $server['Server']['is_saved']=true;
+        $server['Server']['members']=true;
+        $server['Server']['services']=true;
+        array_push($datos,$server['Server']);
+    }
+    $respuesta = array(
+        'success' => true,
+        'total' => count($datos),
+        'data' => $datos
+    );
+    echo json_encode($respuesta);
 ?>

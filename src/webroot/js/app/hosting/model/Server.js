@@ -7,20 +7,26 @@ Ext.define('labinfsis.hosting.model.Server', {
     },
     'server_name'
     ,{
-        name:'fqdn',
+        name:'fully_qualified_domain_name',
         type:'string',
         mapping: 'fully_qualified_domain_name'
     },'ip',
     'server_description',
+    'members',
+    'services',
     {
-        name:'save',
-        type: 'int',
-        mapping: 'save'
+        name:'is_saved',
+        type: 'bool',
+        mapping: 'is_saved'
     },
     {
         name:'is_active',
         type: 'bool',
         mapping: 'is_active'
     },
-    'type']
+    {
+        name:'is_delete',
+        type: 'bool',
+        mapping: 'is_delete'
+    }]
 });

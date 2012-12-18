@@ -16,5 +16,9 @@ Ext.define('labinfsis.hosting.model.Service', {
         name:'is_saved',
         type:'boolean',
         mapping:'is_saved'
+    },{
+        name:'is_delete',
+        type:'boolean',
+        mapping:'is_delete'
     }]
 });

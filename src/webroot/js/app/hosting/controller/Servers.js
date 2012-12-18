@@ -17,37 +17,37 @@ Ext.define('labinfsis.hosting.controller.Servers', {
     init: function() {
         
         this.control({
-            'serverlist button[action=addserver]': {
+            'servers button[action=add]': {
                 click: this.addServer
             },
-            'serverlist button[action=editserver]': {
+            'servers button[action=edit]': {
                 click: this.editServer
             },
-            'serverlist #listaservidores': {
+            'servers #list-servers': {
                 itemdblclick: this.editServer
             },
-            'serverlist button[action=deleteserver]': {
+            'servers button[action=delete]': {
                 click: this.deleteServer
             },
-            'serverlist button[action=syncdata]': {
+            'servers button[action=syncdata]': {
                 click: this.syncServer
             },
-            'serverlist button[action=infoserver]': {
+            'servers button[action=info]': {
                 click: this.infoServer
             },
-            'serverlist button[action=statisticsserver]': {
+            'servers button[action=statistics]': {
                 click: this.statisticServer
             },
-            'serverlist button[action=eventviewerserver]': {
+            'servers button[action=eventviewer]': {
                 click: this.viewServer
             },
-            'serverform button[action=save]': {
+            'server button[action=save]': {
                 click: this.saveServer
             }
         });
     },
     addServer: function(button){
-        Ext.widget('serverform');
+        Ext.widget('server');
 
     },
     viewServer:function(a, b, c){
@@ -56,10 +56,10 @@ Ext.define('labinfsis.hosting.controller.Servers', {
     editServer: function(source, record){
         if(source.getXType() == 'button'){
             var win = source.up('window');
-            record = win.down('#listaservidores').getSelectionModel().getSelection();
+            record = win.down('#list-servers').getSelectionModel().getSelection();
             record = record[0];
         }
-        var view = Ext.widget('serverform');
+        var view = Ext.widget('server');
         view.down('form').loadRecord(record);
 
     },
@@ -70,7 +70,7 @@ Ext.define('labinfsis.hosting.controller.Servers', {
             function(confirm){
                 if(confirm == 'yes'){
                     var win = button.up('window');
-                    var seleccion = win.down('#listagrupos').getSelectionModel().getSelection();
+                    var seleccion = win.down('#list-servers').getSelectionModel().getSelection();
                     this.getServersStore().remove(seleccion);
                     this.getServersStore().sync();
                 }
@@ -90,31 +90,25 @@ Ext.define('labinfsis.hosting.controller.Servers', {
             if(!record){
                 record = this.getServerModel().create();
                 record.set(values);
+                record.set('is_saved', false);
                 this.getServersStore().insert(0, record);
             }else{
+                record.set('is_saved', false);
                 record.set(values);
             }
+            console.debug(record);
         
             win.close();
-            this.getServersStore().sync();
+            this.getServersStore().sync({
+                success: function(optional){
+                    record.set('is_saved', true);
+                }
+            });
         }
     },
     infoServer: function(){
-        Ext.create('Ext.window.Window', {
-            title: 'Hello',
-            height: 200,
-            width: 400,
-            layout: 'fit',
-            headerPosition: 'bottom',
-            items: {  // Let's put an empty grid in just to illustrate fit layout
-                xtype: 'grid',
-                border: false,
-                columns: [{
-                    header: 'World'
-                }],                 // One header just for show. There's no data,
-                store: Ext.create('Ext.data.ArrayStore', {}) // A dummy empty data store
-            }
-        }).show();
+        console.log('Info del servidor');
+       
     },
     statisticServer: function(){
         console.log('Stadisticas del servidor');
