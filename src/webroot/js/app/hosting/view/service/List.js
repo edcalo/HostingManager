@@ -1,7 +1,7 @@
 Ext.define('labinfsis.hosting.view.service.List' ,{
     extend: 'Ext.window.Window',
     alias : 'widget.services',
-    layout: 'fit',
+    layout: 'border',
     autoShow: true,
     modal:true,
     width: 520,
@@ -24,6 +24,8 @@ Ext.define('labinfsis.hosting.view.service.List' ,{
             }
         }
         this.items=[{
+            autoScroll: true,
+            region:'center',
             id: 'list-services',
             singleSelect: true,
             overItemCls: 'x-view-over',
@@ -35,16 +37,16 @@ Ext.define('labinfsis.hosting.view.service.List' ,{
                 selectionchange: this.selectChange
             },
             tpl: [
-                // '<div class="details">',
-                '<tpl for=".">',
-                '<div class="thumb-wrap <tpl if="is_saved == true">icon-ok</tpl> <tpl if="is_saved == false">icon-error</tpl>" data-qtip="<b>Nombre:</b> {service_name} <br ><b>Descripción:</b>{service_description}">',
-                '<div class="thumb" style="padding:10px;">',
-                (!Ext.isIE6? '<img src="/img/icons/hosting/service/{image}" />' : '<div style="width:74px;height:74px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'img/icons/hosting/service/{imgage}\')"></div>'),
-                '</div>',
-                '<span>{serviceShortName}</span>',
-                '</div>',
-                '</tpl>'
-                // '</div>'
+            // '<div class="details">',
+            '<tpl for=".">',
+            '<div class="thumb-wrap <tpl if="is_saved == true">icon-ok</tpl> <tpl if="is_saved == false">icon-error</tpl>" data-qtip="<b>Nombre:</b> {service_name} <br ><b>Descripción:</b>{service_description}">',
+            '<div class="thumb" style="padding:10px;">',
+            (!Ext.isIE6? '<img src="/img/icons/hosting/service/{image}" />' : '<div style="width:74px;height:74px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'img/icons/hosting/service/{imgage}\')"></div>'),
+            '</div>',
+            '<span>{serviceShortName}</span>',
+            '</div>',
+            '</tpl>'
+            // '</div>'
             ],
             prepareData: function(data) {
                 Ext.apply(data, {

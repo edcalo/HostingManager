@@ -16,7 +16,7 @@ class ServersController extends AppController {
      */
     public function index() {
         $this->layout = 'ajax';
-        $this->Server->recursive = 0;
+        $this->Server->recursive = 1;
         $this->set('servers', $this->paginate());
         $this->set('servers', $this->Server->find('all', array(
                     'conditions' => array('Server.is_delete' => false)

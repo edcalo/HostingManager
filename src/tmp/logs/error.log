@@ -259,3 +259,108 @@
 #3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
 #4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2012-12-17 14:27:54 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-17 15:04:38 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-17 16:31:02 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-17 16:43:28 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Service.is_deletes' in 'where clause'
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(459): PDOStatement->execute(Array)
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(425): DboSource->_execute('SELECT `Service...', Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(669): DboSource->execute('SELECT `Service...', Array, Array)
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(1080): DboSource->fetchAll('SELECT `Service...', false)
+#4 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Model.php(2630): DboSource->read(Object(Service), Array)
+#5 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\Controller\ServicesController.php(22): Model->find('all', Array)
+#6 [internal function]: ServicesController->index()
+#7 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(ServicesController), Array)
+#8 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#9 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-12-17 22:43:20 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(459): PDOStatement->execute(Array)
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(425): DboSource->_execute('update', Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(669): DboSource->execute('update', Array, Array)
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('update', Array, Array)
+#4 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Model.php(784): DboSource->query('update', Array, Object(Server))
+#5 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\Controller\ServersController.php(106): Model->__call('update', Array)
+#6 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\Controller\ServersController.php(106): Server->update(Array)
+#7 [internal function]: ServersController->delete()
+#8 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(ServersController), Array)
+#9 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServersController), Object(CakeRequest), Object(CakeResponse))
+#11 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-12-17 23:00:59 Error: Fatal Error (1): Call to a member function save() on a non-object in [D:\elvis.caceres\Dropbox\My projects\HostingManager\src\Controller\ServersController.php, line 113]
+2012-12-17 23:00:59 Error: [FatalErrorException] Call to a member function save() on a non-object
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'D:\elvis.cacere...', 113)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'D:\elvis.cacere...', 113, Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'D:\elvis.cacere...', 113, Array)
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-12-18 00:08:41 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-18 00:21:41 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-18 00:22:36 Error: [MissingControllerException] Controller class WebrootController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-18 00:28:34 Error: [MissingControllerException] Controller class WebrootController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-18 00:31:07 Error: [MissingControllerException] Controller class WebrootController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-18 00:50:37 Error: [MissingControllerException] Controller class WebrootController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-18 00:55:41 Error: [MissingControllerException] Controller class WebrootController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-18 01:41:35 Error: [MissingViewException] View file "D:\elvis.caceres\Dropbox\My projects\HostingManager\src\View\Servers\admin_index.ctp" is missing.
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\View\View.php(473): View->_getViewFileName(NULL)
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(956): View->render(NULL, NULL)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServersController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-18 01:42:35 Error: [MissingViewException] View file "D:\elvis.caceres\Dropbox\My projects\HostingManager\src\View\Services\admin_index.ctp" is missing.
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\View\View.php(473): View->_getViewFileName(NULL)
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(956): View->render(NULL, NULL)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-18 01:44:40 Error: [MissingViewException] View file "D:\elvis.caceres\Dropbox\My projects\HostingManager\src\View\Services\admin_index.ctp" is missing.
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\View\View.php(473): View->_getViewFileName(NULL)
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(956): View->render(NULL, NULL)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-18 01:45:19 Error: [MissingViewException] View file "D:\elvis.caceres\Dropbox\My projects\HostingManager\src\View\Services\admin_index.ctp" is missing.
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\View\View.php(473): View->_getViewFileName(NULL)
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(956): View->render(NULL, NULL)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ServicesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-18 15:19:54 Error: [MissingControllerException] Controller class WebrootController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-18 19:38:38 Error: [MissingControllerException] Controller class SharedController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-18 19:45:20 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-18 19:45:48 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

@@ -20,7 +20,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-        <title>Sistema de Admisnitracion Integrado - <?php echo $title_for_layout; ?></title>
+        <title>Sistema de Administracion Integrado - <?php echo $title_for_layout; ?></title>
 
         <link href="/img/sistemas.ico" rel="icon" type="image/png"  />
         <!--[if IE]>
@@ -43,7 +43,7 @@
         <div id="container">
             <div id="header">
                 <div class="title">
-                    Sistema de Admisnitracion Integrado
+                    Sistema de Administracion Integrado
                 </div>
             </div>
             <div id="content">

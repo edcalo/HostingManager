@@ -8,15 +8,15 @@ Ext.define('labinfsis.hosting.controller.Accounts', {
     ],
     views: [
         'account.List',
-        'account.Edit'
+        'account.Form'
     ],
     init: function() {
         this.control({
-            'accountlist': {
+            'accounts': {
                 itemdblclick: this.editAccount,
                 itemclick:this.viewAccount
             },
-            'formaccount button[action=save]': {
+            'account button[action=save]': {
                 click: this.saveAccount
             }
 
@@ -24,7 +24,7 @@ Ext.define('labinfsis.hosting.controller.Accounts', {
     },
 
     editAccount: function(grid, record) {
-        var view = Ext.widget('formaccount');
+        var view = Ext.widget('account');
 
         view.down('form').loadRecord(record);
     },

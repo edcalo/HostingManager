@@ -96,7 +96,6 @@ Ext.define('labinfsis.hosting.controller.Servers', {
                 record.set('is_saved', false);
                 record.set(values);
             }
-            console.debug(record);
         
             win.close();
             this.getServersStore().sync({

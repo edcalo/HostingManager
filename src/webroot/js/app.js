@@ -35,10 +35,10 @@ Ext.application({
             autoScroll: true
         });
         var panel_cuentas=Ext.create('Ext.Panel',{
-            title: 'Lista de Cuentas',
+            title: 'Hosting Manager',
             layout: 'border',
             items:[{
-                    xtype:'accountlist',
+                    xtype:'accounts',
                     region:'center'
             },{
                 title: 'Detalle de la cuenta seleccionada',

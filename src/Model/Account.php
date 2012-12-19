@@ -28,97 +28,47 @@ class Account extends AppModel {
         'user_id' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-            //'message' => 'Your custom message here',
+                'message' => 'El usuario es requerido para crear la cuenta'
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
+            )
         ),
         'account_name' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-            //'message' => 'Your custom message here',
+                'message' => 'Nombre de la cuenta es requerido'
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
+            )
         ),
         'account_password' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-            //'message' => 'Your custom message here',
+                'message' => 'Password es requerido'
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
-        ),
-        'uid' => array(
-            'notempty' => array(
-                'rule' => array('notempty'),
-            //'message' => 'Your custom message here',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
-        ),
-        'gid' => array(
-            'notempty' => array(
-                'rule' => array('notempty'),
-            //'message' => 'Your custom message here',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
+            )
         ),
         'home_dir' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-            //'message' => 'Your custom message here',
+                'message' => 'Home dir es requerido'
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
-        ),
-        'shell' => array(
-            'notempty' => array(
-                'rule' => array('notempty'),
-            //'message' => 'Your custom message here',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
-        ),
-        'count' => array(
-            'userdefined' => array(
-                'rule' => array('userdefined'),
-            //'message' => 'Your custom message here',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
-        ),
-        'accessed' => array(
-            'date' => array(
-                'rule' => array('date'),
-            //'message' => 'Your custom message here',
-            //'allowEmpty' => false,
-            //'required' => false,
-            //'last' => false, // Stop validation after this rule
-            //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
+            )
         ),
         'expired' => array(
             'datetime' => array(
-                'rule' => array('datetime'),
-            //'message' => 'Your custom message here',
+                'rule' => array('date'),
+                'message' => 'Fecha de expiracion de la cuenta es requerido'
             //'allowEmpty' => false,
             //'required' => false,
             //'last' => false, // Stop validation after this rule

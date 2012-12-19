@@ -1,6 +1,6 @@
-Ext.define('labinfsis.hosting.view.account.Edit', {
+Ext.define('labinfsis.hosting.view.account.Form', {
     extend: 'Ext.window.Window',
-    alias : 'widget.formaccount',
+    alias : 'widget.account',
     title : 'Edit Account',
     layout: 'fit',
     autoShow: true,

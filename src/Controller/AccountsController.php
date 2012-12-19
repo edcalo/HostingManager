@@ -44,6 +44,11 @@ class AccountsController extends AppController {
         if ($this->request->is('post')) {
             $this->Account->create();
             if ($this->Account->save($this->request->data)) {
+                //encriptamos la contraseña paar que proftpd lo pueda autenticar
+                $pass_encrypt = $this->Account->query("SELECT ENCRYPT('" . $this->request->data['Account']['account_password'] . "') as password");
+                $password = $pass_encrypt[0][0]['password'];
+                $this->Account->saveField('account_password', $password);
+
                 $this->Session->setFlash(__('The account has been saved'));
                 $this->redirect(array('action' => 'index'));
             } else {

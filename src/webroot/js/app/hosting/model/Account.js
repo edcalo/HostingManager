@@ -20,14 +20,20 @@ Ext.define('labinfsis.hosting.model.Account', {
         mapping: 'gid'
     },
     'home_dir',
+    'status',
     {
-        name:'status',
-        type: 'int',
-        mapping: 'status'
+        name:'expired',
+        type:'date', 
+        dateFormat:'Y-m-d H:i:s',
+        mapping:'expired'
     },
-    'expired',
     'home_dir',
-    'accessed',
+    {
+        name:'accessed',
+        type:'date', 
+        dateFormat:'Y-m-d H:i:s',
+        mapping:'accessed'
+    },
     'email',
     'shell',
     {
