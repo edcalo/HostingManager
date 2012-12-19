@@ -83,7 +83,7 @@ img.img_left{
 
 /*-------------------footer------------------------*/
 #footer{
-    background:#1E4176 url(../img/hd-bg.gif) repeat-x 0 0;
+    background:#1E4176 url('../img/hd-bg.gif') repeat-x 0 0;
     height:30px;
     clear:both;
     padding-left:10px;
@@ -164,4 +164,13 @@ ol.commentlist {
     background-repeat: repeat;
     padding:15px;
     background-image: url('../img/logo_marca_agua.gif');
+}
+
+.x-boundlist-item img.chkCombo {
+    background: transparent url('http://localhost/libs/extjs-4.1.1/resources/themes/images/default/menu/unchecked.gif');
+    width: 16px;
+    vertical-align: middle;
+}
+.x-boundlist-selected img.chkCombo{
+    background: transparent url('http://localhost/libs/extjs-4.1.1/resources/themes/images/default/menu/checked.gif');
 }

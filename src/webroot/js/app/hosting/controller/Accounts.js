@@ -31,14 +31,24 @@ Ext.define('labinfsis.hosting.controller.Accounts', {
     viewAccount:function(a, b, c){
         console.log('Actualizar el view');
     },
-    saveAccount: function(button){
-        var win    = button.up('window'),
-        form   = win.down('form'),
-        record = form.getRecord(),
-        values = form.getValues();
-
-        record.set(values);
-        win.close();
+    saveAccount: function(button){             
+        var win    = button.up('window');
+        var form   = win.down('form');
+        if(form.getForm().isValid()){
+            var record = form.getRecord();
+            var values = form.getValues();
+            if(!record){
+                record = this.getAccountModel().create();
+                record.set(values);
+                
+                this.getAccountsStore().insert(0, record);
+            }else{
+                record.set(values);
+            }
+        
+            win.close();
+            this.getAccountsStore().sync();
+        }
 
     }
 });

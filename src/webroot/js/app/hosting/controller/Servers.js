@@ -8,7 +8,8 @@ Ext.define('labinfsis.hosting.controller.Servers', {
     ],
     views: [
         'server.List',
-        'server.Form'
+        'server.Form',
+        'server.Selector'
     ],
     requires:[
         'Ext.window.MessageBox',
