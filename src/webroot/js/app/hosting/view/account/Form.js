@@ -7,6 +7,9 @@ Ext.define('labinfsis.hosting.view.account.Form', {
     width: 550,
     autoShow: true,
     modal:true,
+    requires:[
+    'Ext.ux.form.PasswordMeter'
+    ],
     initComponent: function() {
         this.items = {
             xtype: 'form',
@@ -57,7 +60,7 @@ Ext.define('labinfsis.hosting.view.account.Form', {
                     columnWidth:.50,
                     layout: 'anchor',
                     items: [{
-                        xtype: 'textfield',
+                        xtype: 'passwordmeter',
                         afterLabelTextTpl: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>',
                         name : 'account_password',
                         fieldLabel: 'Contraseña',
@@ -71,7 +74,7 @@ Ext.define('labinfsis.hosting.view.account.Form', {
                     layout: 'anchor',
                     bodyStyle: 'backgrounf: transparent;',
                     items: [{
-                        xtype: 'textfield',
+                        xtype: 'passwordmeter',
                         name : 'account_password_repeat',
                         fieldLabel: 'Repetir contraseña',
                         afterLabelTextTpl: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>',

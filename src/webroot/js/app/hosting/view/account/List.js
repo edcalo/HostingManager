@@ -6,32 +6,34 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
         this.columns = [
         Ext.create('Ext.grid.RowNumberer'),
         {
-            header: 'Nombre',
+            header: 'Servidor',
+            dataIndex: 'server'
+        },{
+            header:'Usuario',
+            dataIndex:'user'
+        },{
+            header: 'Nombre de la cuenta',
             dataIndex: 'account_name'
         },{
-            header: 'Email',
+            header: 'Email de contacto',
             dataIndex: 'email'
         },{
-            header: 'UserID',
-            dataIndex: 'user_id'
+            header: 'Quota',
+            dataIndex: 'quota'
         },{
-            header: 'Group',
-            dataIndex: 'gid'
-        },{
-            header: 'Status',
-            dataIndex: 'status'
-        },{
-            header: 'Expired',
-            dataIndex: 'expired'
-        },{
-            header: 'HomeDir',
+            header: 'Directorio de Trabajo',
             dataIndex: 'home_dir'
         },{
-            header: 'Accessed',
-            dataIndex: 'accessed'
+            header: 'Ultimo Acceso',
+            dataIndex: 'accessed',
+            renderer:Ext.util.Format.dateRenderer('d/m/Y')
         },{
-            //menuDisabled: true,
-           // sortable: false,
+            header:'Fecha expiracion',
+            dataIndex:'expired',
+            renderer: Ext.util.Format.dateRenderer('d/m/Y')
+        },{
+            menuDisabled: true,
+            sortable: false,
             xtype: 'actioncolumn',
             width: 50,
             items: [/*{
@@ -64,12 +66,12 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
             enableTextSelection: true
         
         };
-        this.groupField = 'gid';
+        this.groupField = 'server';
         this.hideGroupedHeader = true;
         var sm = Ext.create('Ext.selection.CheckboxModel');
         this.selModel = sm;
         var groupingFeature = Ext.create('Ext.grid.feature.Grouping',{
-            groupHeaderTpl: 'Grupo: {gid} ({rows.length} Item{[values.rows.length > 1 ? "s" : ""]})'
+            groupHeaderTpl: 'Grupo: {server} ({rows.length} Item{[values.rows.length > 1 ? "s" : ""]})'
         });
         this.features = [groupingFeature];
         this.bbar= Ext.create('Ext.PagingToolbar', {
