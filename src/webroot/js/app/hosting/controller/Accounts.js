@@ -37,12 +37,16 @@ Ext.define('labinfsis.hosting.controller.Accounts', {
         if(form.getForm().isValid()){
             var record = form.getRecord();
             var values = form.getValues();
+            var servers = values.servers
             if(!record){
                 record = this.getAccountModel().create();
+                
+                values.servers = servers.join(',');
                 record.set(values);
                 
                 this.getAccountsStore().insert(0, record);
             }else{
+                values.servers = servers.join(',');
                 record.set(values);
             }
         

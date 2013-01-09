@@ -9,17 +9,17 @@ Ext.define('labinfsis.hosting.model.Account', {
         type: 'int',
         mapping: 'user_id'
     },
-    'account_name'
-    ,{
-        name:'uid',
-        type:'int',
-        mapping: 'uid'
-    },{
-        name:'gid',
-        type:'int',
-        mapping: 'gid'
-    },
-    'home_dir',
+    'title',
+    'first_name',
+    'last_name',
+    'email',
+    'phone',
+    'account_name',
+    'account_password',
+    'account_description',
+    'servers',
+    'quota_limit',
+    'quota_tall',
     'status',
     {
         name:'expired',
@@ -27,6 +27,7 @@ Ext.define('labinfsis.hosting.model.Account', {
         dateFormat:'Y-m-d H:i:s',
         mapping:'expired'
     },
+    'home_dir_config',
     'home_dir',
     {
         name:'accessed',
@@ -34,14 +35,12 @@ Ext.define('labinfsis.hosting.model.Account', {
         dateFormat:'Y-m-d H:i:s',
         mapping:'accessed'
     },
-    'email',
-    'shell',
-    {
+    
+    'shell',{
         name:'is_saved',
         type: 'bool',
         mapping: 'is_saved'
-    },
-    {
+    },{
         name:'is_active',
         type: 'bool',
         mapping: 'is_active'

@@ -16,7 +16,7 @@ class AccountsController extends AppController {
      */
     public function index() {
         $this->layout='ajax';
-        $this->Account->recursive = 0;
+        $this->Account->recursive = 1;
         $this->set('accounts', $this->paginate());
     }
 
@@ -41,23 +41,23 @@ class AccountsController extends AppController {
      * @return void
      */
     public function add() {
-        if ($this->request->is('post')) {
-            $this->Account->create();
-            if ($this->Account->save($this->request->data)) {
-                //encriptamos la contraseña paar que proftpd lo pueda autenticar
-                $pass_encrypt = $this->Account->query("SELECT ENCRYPT('" . $this->request->data['Account']['account_password'] . "') as password");
-                $password = $pass_encrypt[0][0]['password'];
-                $this->Account->saveField('account_password', $password);
+        $this->layout = 'ajax';
+        if (!empty($this->request->data)) {
+            $datos = json_decode(stripslashes($this->request->data)); //decodificamos la informacion
+            $servers = explode(',', $datos->servers);
+            $this->request->data = array('Account' => (array) $datos);
+            $this->request->data['Server'] = array('Server' => $servers);
 
-                $this->Session->setFlash(__('The account has been saved'));
-                $this->redirect(array('action' => 'index'));
+            if ($this->Account->save($this->request->data)) {
+                $this->set('saved', 1);
+                $this->request->data['Account']['id'] = $this->Account->id;
             } else {
-                $this->Session->setFlash(__('The account could not be saved. Please, try again.'));
+                $this->set('saved', 0);
             }
+        } else {
+            $this->set('saved', 2); // mo se recibieron datos para guardar
         }
-        $users = $this->Account->User->find('list');
-        $servers = $this->Account->Server->find('list');
-        $this->set(compact('users', 'servers'));
+        
     }
 
     /**

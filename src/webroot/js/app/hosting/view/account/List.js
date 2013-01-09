@@ -7,30 +7,82 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
         Ext.create('Ext.grid.RowNumberer'),
         {
             header: 'Servidor',
-            dataIndex: 'server'
+            dataIndex: 'servers',
+            renderer: function(value, metaData, record, rowIndex, colIndex, store){
+                
+                var ids = [];
+                if(!Ext.isArray(value)){
+                    value.split(',');
+                }else{
+                    ids= value;
+                }
+                
+                var st = Ext.data.StoreManager.get("Servers");
+                var server_names = [];
+                Ext.Array.each(ids, function(id) {
+                    var index = st.find('id',id);
+                    if(index >=0){
+                        var record = st.getAt(index);
+                        server_names.push(record.get('server_name'));
+                        
+                    }
+                });
+                
+                return server_names.join(',') 
+            }
         },{
             header:'Usuario',
-            dataIndex:'user'
+            dataIndex:'first_name',
+            renderer: function(value, metaData, record, rowIndex, colIndex, store){ 
+                return value+'  '+record.get('last_name'); 
+            }
         },{
-            header: 'Nombre de la cuenta',
+            header: 'Cuenta',
             dataIndex: 'account_name'
         },{
-            header: 'Email de contacto',
+            header: 'Email',
             dataIndex: 'email'
         },{
             header: 'Quota',
-            dataIndex: 'quota'
+            dataIndex: 'quota_limit',
+            width:100,
+            renderer: function (value, metaData, record, rowIndex, colIndex, store) {
+                var id = Ext.id();
+                if(value > 0){                   
+                    var valor = record.get('quota_tall')*100/value;
+                    Ext.defer(function () {
+                        Ext.widget('progressbar', {
+                            renderTo: id,
+                            value: valor/100,
+                            text: record.get('quota_tall') + " / "+ value + " Mb" 
+                        });
+                    }, 50);
+                    
+                }else{
+                    Ext.defer(function () {
+                        Ext.widget('progressbar', {
+                            renderTo: id,
+                            value: 0,
+                            text: " Ilimitado" 
+                        });
+                    }, 50);
+                }
+                return Ext.String.format('<div id="{0}"></div>', id);
+            }
         },{
             header: 'Directorio de Trabajo',
-            dataIndex: 'home_dir'
+            dataIndex: 'home_dir',
+            flex:1
         },{
             header: 'Ultimo Acceso',
             dataIndex: 'accessed',
-            renderer:Ext.util.Format.dateRenderer('d/m/Y')
+            xtype:'datecolumn',
+            format:'d/m/Y'
         },{
             header:'Fecha expiracion',
             dataIndex:'expired',
-            renderer: Ext.util.Format.dateRenderer('d/m/Y')
+            xtype:'datecolumn',
+            format:'d/m/Y'
         },{
             menuDisabled: true,
             sortable: false,

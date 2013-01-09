@@ -1,35 +1,40 @@
-<div class="accounts form">
-<?php echo $this->Form->create('Account'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Account'); ?></legend>
-	<?php
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('account_name');
-		echo $this->Form->input('account_password');
-		echo $this->Form->input('uid');
-		echo $this->Form->input('gid');
-		echo $this->Form->input('home_dir');
-		echo $this->Form->input('shell');
-		echo $this->Form->input('count');
-		echo $this->Form->input('accessed');
-		echo $this->Form->input('expired');
-		echo $this->Form->input('Server');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<?php
 
-		<li><?php echo $this->Html->link(__('List Accounts'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Quota Limits'), array('controller' => 'quota_limits', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Quota Limit'), array('controller' => 'quota_limits', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Quota Tallies'), array('controller' => 'quota_tallies', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Quota Tally'), array('controller' => 'quota_tallies', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Servers'), array('controller' => 'servers', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Server'), array('controller' => 'servers', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+switch ($saved) {
+    case 1: {
+            $this->request->data['Server']['is_save'] = true;
+            $respuesta = array(
+                'success' => true,
+                'mensage' => array(
+                    'titulo' => 'Cuenta guardado',
+                    'msg' => 'La nueva ceunta fue guardada con exito en el catalogo del sistema'
+                ),
+                'data' => $this->request->data['Account']
+            );
+            print json_encode($respuesta);
+        } break;
+    case 0: {
+
+            $resultado = array(
+                'success' => false,
+                'mensage' => array(
+                    'titulo' => 'Error al guardar',
+                    'msg' => 'El formulario tiene errores, corrijalos y vuelva ha intentarlo'
+                ),
+                'errors' => $this->validationErrors['Account']
+            );
+            print json_encode($resultado);
+        } break;
+    case 2: {
+            $resultado = array(
+                'success' => false,
+                'mensage' => array(
+                    'titulo' => 'Error al guardar',
+                    'msg' => 'NO se recibio datos para registrar la cuenta'
+                ),
+                'errors' => array()
+            );
+            print json_encode($resultado);
+        }break;
+}
+?>

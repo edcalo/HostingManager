@@ -14,16 +14,16 @@ Ext.application({
     name: 'labinfsis.hosting',
     appFolder: 'js/app/hosting',
     controllers: [
-        'Accounts',
-        'Servers',
-        'Services'
+    'Accounts',
+    'Servers',
+    'Services'
     ],
     listarServidores: function(){
         var servidores = Ext.widget('servers');
         servidores.show();
     },
     listarServicios: function(){
-       var servicios = Ext.widget('services');
+        var servicios = Ext.widget('services');
         servicios.show(); 
     },    
     launch: function() {
@@ -38,8 +38,8 @@ Ext.application({
             title: 'Hosting Manager',
             layout: 'border',
             items:[{
-                    xtype:'accounts',
-                    region:'center'
+                xtype:'accounts',
+                region:'center'
             },{
                 title: 'Detalle de la cuenta seleccionada',
                 collapsible: true,
@@ -59,7 +59,11 @@ Ext.application({
                         scale: 'large',                        
                         text: 'Registrar',
                         iconAlign: 'top',
-                        iconCls: 'icon-add-aux'
+                        iconCls: 'icon-add-aux',
+                        handler: function(){
+                            var account = Ext.widget('account');
+                            account.show();
+                        }
                     }
                 },{
                     xtype: 'buttongroup',
