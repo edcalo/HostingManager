@@ -1,4 +1,4 @@
-Ext.define('labinfsis.hosting.view.account.Form', {
+    Ext.define('labinfsis.hosting.view.account.Form', {
     extend: 'Ext.window.Window',
     alias : 'widget.account',
     title : 'Registrar cuenta',
@@ -248,21 +248,21 @@ Ext.define('labinfsis.hosting.view.account.Form', {
                     items:[{
                         checked: true,
                         boxLabel: '50 Mb', 
-                        name: 'quota', 
+                        name: 'quota_limit', 
                         inputValue: 50,
                         margins: '0 15 0 0'
                     },{
                         boxLabel: '100 Mb', 
-                        name: 'quota', 
+                        name: 'quota_limit', 
                         inputValue: 100,
                         margins: '0 15 0 0'
                     },{
                         boxLabel: '', 
-                        name: 'quota', 
+                        name: 'quota_limit', 
                         inputValue: 1
                     },{ 
                         xtype:'textfield',
-                        name:'quota',
+                        name:'quota_limit',
                         width: 35
                     },{
                         xtype: 'displayfield', 
@@ -270,7 +270,7 @@ Ext.define('labinfsis.hosting.view.account.Form', {
                         margins: '0 15 0 0'
                     },{
                         boxLabel: 'Ilimitado', 
-                        name: 'quota', 
+                        name: 'quota_limit', 
                         inputValue: 0
                     }]
                     

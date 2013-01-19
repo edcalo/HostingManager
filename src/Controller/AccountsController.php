@@ -15,7 +15,7 @@ class AccountsController extends AppController {
      * @return void
      */
     public function index() {
-        $this->layout='ajax';
+        $this->layout = 'ajax';
         $this->Account->recursive = 1;
         $this->set('accounts', $this->paginate());
     }
@@ -44,11 +44,45 @@ class AccountsController extends AppController {
         $this->layout = 'ajax';
         if (!empty($this->request->data)) {
             $datos = json_decode(stripslashes($this->request->data)); //decodificamos la informacion
-            $servers = explode(',', $datos->servers);
-            $this->request->data = array('Account' => (array) $datos);
-            $this->request->data['Server'] = array('Server' => $servers);
 
-            if ($this->Account->save($this->request->data)) {
+            $user = array(
+                'user_name' => $datos->account_name,
+                'title' => $datos->title,
+                'first_name' => $datos->first_name,
+                'last_name' => $datos->last_name,
+                'email' => $datos->email,
+                'phone' => $datos->phone,
+                'status' => 1
+            );
+
+            $servers = explode(',', $datos->servers);
+            if ($datos->quota_limit[0] == 1) {
+                $quota_limit = $datos->quota_limit[1] * 1048576;
+            } else {
+                if ($datos->quota_limit[0] == 0) {
+                    $quota_limit = $datos->quota_limit[0];
+                } else {
+                    $quota_limit = $datos->quota_limit[0] * 1048576;
+                }
+            }
+            $quota = array('QuotaLimit' => array(
+                    'account_name' => $datos->account_name,
+                    'bytes_in_avail' => $quota_limit
+                    ));
+            $account = array('Account' => array(
+                    'account_name' => $datos->account_name,
+                    'account_password' => $datos->account_password,
+                    'account_description' => $datos->account_description,
+                    'expired' => date('Y-m-d H:i:s'),
+                    'home_dir' => $datos->home_dir == "" ? "/srv/" . $datos->account_name : $datos->home_dir,
+                    'status' => 1
+                    ));
+            $this->request->data = $account;
+            $this->request->data['User'] = $user;
+            $this->request->data['Server'] = $servers;
+            $this->request->data['QuotaLimit'] = $quota;
+
+            if ($this->Account->saveAll($this->request->data)) {
                 $this->set('saved', 1);
                 $this->request->data['Account']['id'] = $this->Account->id;
             } else {
@@ -57,7 +91,6 @@ class AccountsController extends AppController {
         } else {
             $this->set('saved', 2); // mo se recibieron datos para guardar
         }
-        
     }
 
     /**
