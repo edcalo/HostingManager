@@ -8,27 +8,15 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
         {
             header: 'Servidor',
             dataIndex: 'servers',
-            renderer: function(value, metaData, record, rowIndex, colIndex, store){
-                
-                var ids = [];
-                if(!Ext.isArray(value)){
-                    value.split(',');
-                }else{
-                    ids= value;
-                }
-                
+            renderer: function(value, metaData, record, rowIndex, colIndex, store){                
                 var st = Ext.data.StoreManager.get("Servers");
-                var server_names = [];
-                Ext.Array.each(ids, function(id) {
-                    var index = st.find('id',id);
-                    if(index >=0){
-                        var record = st.getAt(index);
-                        server_names.push(record.get('server_name'));
-                        
-                    }
-                });
-                
-                return server_names.join(',') 
+                var index = st.find('id',value);
+                if(index >=0){
+                    var row = st.getAt(index);
+                    return row.get('server_name');       
+                }else{
+                    return value;
+                }
             }
         },{
             header:'Usuario',

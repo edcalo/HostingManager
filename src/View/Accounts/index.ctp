@@ -24,12 +24,6 @@ foreach ($accounts as $account) {
         'is_active' => $account['Account']['status'] == 'enable',
         'is_delete' => $account['User']['is_delete'],
     );
-    $servers = array();
-    foreach ($account['Server'] as $server) {
-        array_push($servers, $server['id']);
-    }
-    $data_account['servers'] = implode(',', $servers);
-
     if (count($account['QuotaLimit']) > 0) {
         $bytes = $account['QuotaLimit'][0]['bytes_in_avail'];
         $data_account['quota_limit'] = $bytes / 1048576;
@@ -43,8 +37,18 @@ foreach ($accounts as $account) {
     } else {
         $data_account['quota_tall'] = 0;
     }
+    
+    $servers = array();
+    foreach ($account['Server'] as $server) {
+        array_push($servers, $server['id']);
+        $data_account['servers'] = $server['server_name'];
+        array_push($datos, $data_account);
+    }
+    //$data_account['servers'] = implode(',', $servers);
 
-    array_push($datos, $data_account);
+    
+
+    //array_push($datos, $data_account);
 }
 $respuesta = array(
     'success' => true,

@@ -1,37 +1,63 @@
-<div class="accounts form">
-<?php echo $this->Form->create('Account'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit Account'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('account_name');
-		echo $this->Form->input('account_password');
-		echo $this->Form->input('uid');
-		echo $this->Form->input('gid');
-		echo $this->Form->input('home_dir');
-		echo $this->Form->input('shell');
-		echo $this->Form->input('count');
-		echo $this->Form->input('accessed');
-		echo $this->Form->input('expired');
-		echo $this->Form->input('Server');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<?php
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Account.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Account.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Accounts'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Quota Limits'), array('controller' => 'quota_limits', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Quota Limit'), array('controller' => 'quota_limits', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Quota Tallies'), array('controller' => 'quota_tallies', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Quota Tally'), array('controller' => 'quota_tallies', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Servers'), array('controller' => 'servers', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Server'), array('controller' => 'servers', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+if ($update) {
+    $list_accounts = array();
+    foreach ($accounts as $account) {
+        $data_account = array(
+            'id' => $account['Account']['id'],
+            'user_id' => $account['User']['id'],
+            'title' => $account['User']['title'],
+            'first_name' => $account['User']['first_name'],
+            'last_name' => $account['User']['last_name'],
+            'email' => $account['User']['email'],
+            'phone' => $account['User']['phone'],
+            'account_name' => $account['Account']['account_name'],
+            'account_password' => $account['Account']['account_password'],
+            'account_description' => $account['Account']['account_description'],
+            'status' => $account['Account']['status'],
+            'home_dir_config' => 'custom_config',
+            'shell' => $account['Account']['shell'],
+            'home_dir' => $account['Account']['home_dir'],
+            'expired' => $account['Account']['expired'],
+            'accessed' => $account['Account']['accessed'],
+            'is_saved' => true,
+            'is_active' => $account['Account']['status'] == 'enable',
+            'is_delete' => $account['User']['is_delete'],
+        );
+        if (count($account['QuotaLimit']) > 0) {
+            $bytes = $account['QuotaLimit'][0]['bytes_in_avail'];
+            $data_account['quota_limit'] = $bytes / 1048576;
+        } else {
+            $data_account['quota_limit'] = 0;
+        }
+
+        if (count($account['QuotaTally']) > 0) {
+            $bytes = $account['QuotaTally'][0]['bytes_in_avail'];
+            $data_account['quota_tall'] = $bytes / 1048576;
+        } else {
+            $data_account['quota_tall'] = 0;
+        }
+
+        $servers = array();
+        foreach ($account['Server'] as $server) {
+            array_push($servers, $server['id']);
+            $data_account['servers'] = $server['server_name'];
+            array_push($list_accounts, $data_account);
+        }
+    }
+    $response = array(
+        'success' => $update,
+        'data' => $list_accounts
+    );
+} else {
+    $response = array(
+        'success' => $update,
+        'mensage' => array(
+            'titulo' => 'Error al guardar',
+            'msg' => 'El formulario tiene errores, corrijalos y vuelva ha intentarlo'
+        ),
+        'errors' => $this->validationErrors['Account']
+    );
+}
+echo json_encode($response);
+?>
