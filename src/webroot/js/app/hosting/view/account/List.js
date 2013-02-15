@@ -101,6 +101,7 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
                 }
             }]
         }];
+    this.title="Lista de Cuentas";
         this.viewConfig= {
             stripeRows: true,
             enableTextSelection: true
@@ -114,6 +115,17 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
             groupHeaderTpl: 'Grupo: {server} ({rows.length} Item{[values.rows.length > 1 ? "s" : ""]})'
         });
         this.features = [groupingFeature];
+        this.tbar = [{                     
+            text: 'Registrar',
+            iconCls: 'icon-add'
+                        
+        },{
+            text: 'Modificar',                 
+            iconCls: 'icon-edit'
+        },{
+            text: 'Eliminar',
+            iconCls:'icon-delete'
+        }];
         this.bbar= Ext.create('Ext.PagingToolbar', {
             store: this.store,
             displayInfo: true,

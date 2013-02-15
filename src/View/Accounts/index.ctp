@@ -41,6 +41,7 @@ foreach ($accounts as $account) {
     $servers = array();
     foreach ($account['Server'] as $server) {
         array_push($servers, $server['id']);
+        $data_account['id'] = $account['Account']['id'].".".$server['id'];
         $data_account['servers'] = $server['server_name'];
         array_push($datos, $data_account);
     }
