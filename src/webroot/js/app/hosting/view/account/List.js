@@ -6,32 +6,74 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
         this.columns = [
         Ext.create('Ext.grid.RowNumberer'),
         {
-            header: 'Nombre',
+            header: 'Servidor',
+            dataIndex: 'servers',
+            renderer: function(value, metaData, record, rowIndex, colIndex, store){                
+                var st = Ext.data.StoreManager.get("Servers");
+                var index = st.find('id',value);
+                if(index >=0){
+                    var row = st.getAt(index);
+                    return row.get('server_name');       
+                }else{
+                    return value;
+                }
+            }
+        },{
+            header:'Usuario',
+            dataIndex:'first_name',
+            renderer: function(value, metaData, record, rowIndex, colIndex, store){ 
+                return value+'  '+record.get('last_name'); 
+            }
+        },{
+            header: 'Cuenta',
             dataIndex: 'account_name'
         },{
             header: 'Email',
             dataIndex: 'email'
         },{
-            header: 'UserID',
-            dataIndex: 'user_id'
+            header: 'Quota',
+            dataIndex: 'quota_limit',
+            width:100,
+            renderer: function (value, metaData, record, rowIndex, colIndex, store) {
+                var id = Ext.id();
+                if(value > 0){                   
+                    var valor = record.get('quota_tall')*100/value;
+                    Ext.defer(function () {
+                        Ext.widget('progressbar', {
+                            renderTo: id,
+                            value: valor/100,
+                            text: record.get('quota_tall') + " / "+ value + " Mb" 
+                        });
+                    }, 50);
+                    
+                }else{
+                    Ext.defer(function () {
+                        Ext.widget('progressbar', {
+                            renderTo: id,
+                            value: 0,
+                            text: " Ilimitado" 
+                        });
+                    }, 50);
+                }
+                return Ext.String.format('<div id="{0}"></div>', id);
+            }
         },{
-            header: 'Group',
-            dataIndex: 'gid'
+            header: 'Directorio de Trabajo',
+            dataIndex: 'home_dir',
+            flex:1
         },{
-            header: 'Status',
-            dataIndex: 'status'
+            header: 'Ultimo Acceso',
+            dataIndex: 'accessed',
+            xtype:'datecolumn',
+            format:'d/m/Y'
         },{
-            header: 'Expired',
-            dataIndex: 'expired'
+            header:'Fecha expiracion',
+            dataIndex:'expired',
+            xtype:'datecolumn',
+            format:'d/m/Y'
         },{
-            header: 'HomeDir',
-            dataIndex: 'home_dir'
-        },{
-            header: 'Accessed',
-            dataIndex: 'accessed'
-        },{
-            //menuDisabled: true,
-           // sortable: false,
+            menuDisabled: true,
+            sortable: false,
             xtype: 'actioncolumn',
             width: 50,
             items: [/*{
@@ -59,19 +101,31 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
                 }
             }]
         }];
+    this.title="Lista de Cuentas";
         this.viewConfig= {
             stripeRows: true,
             enableTextSelection: true
         
         };
-        this.groupField = 'gid';
+        this.groupField = 'server';
         this.hideGroupedHeader = true;
         var sm = Ext.create('Ext.selection.CheckboxModel');
         this.selModel = sm;
         var groupingFeature = Ext.create('Ext.grid.feature.Grouping',{
-            groupHeaderTpl: 'Grupo: {gid} ({rows.length} Item{[values.rows.length > 1 ? "s" : ""]})'
+            groupHeaderTpl: 'Grupo: {server} ({rows.length} Item{[values.rows.length > 1 ? "s" : ""]})'
         });
         this.features = [groupingFeature];
+        this.tbar = [{                     
+            text: 'Registrar',
+            iconCls: 'icon-add'
+                        
+        },{
+            text: 'Modificar',                 
+            iconCls: 'icon-edit'
+        },{
+            text: 'Eliminar',
+            iconCls:'icon-delete'
+        }];
         this.bbar= Ext.create('Ext.PagingToolbar', {
             store: this.store,
             displayInfo: true,

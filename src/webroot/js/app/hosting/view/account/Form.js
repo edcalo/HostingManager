@@ -1,4 +1,4 @@
-Ext.define('labinfsis.hosting.view.account.Form', {
+    Ext.define('labinfsis.hosting.view.account.Form', {
     extend: 'Ext.window.Window',
     alias : 'widget.account',
     title : 'Registrar cuenta',
@@ -7,6 +7,9 @@ Ext.define('labinfsis.hosting.view.account.Form', {
     width: 550,
     autoShow: true,
     modal:true,
+    requires:[
+    'Ext.ux.form.PasswordMeter'
+    ],
     initComponent: function() {
         this.items = {
             xtype: 'form',
@@ -19,20 +22,79 @@ Ext.define('labinfsis.hosting.view.account.Form', {
                 name:'id',
                 xtype: 'hidden'
             },{
+                xtype:'fieldcontainer',
+                style: {
+                    paddingTop:'15px '
+                },
+                combineErrors: true,
+                msgTarget : 'side',
+                layout: 'hbox',
+                fieldLabel: 'Nombre Completo',
+                defaults: {                        
+                    hideLabel: true
+                },
+                items:[{
+                    width:          50,
+                    xtype:          'combo',
+                    mode:           'local',
+                    value:          'Univ',
+                    triggerAction:  'all',
+                    forceSelection: true,
+                    editable:       false,
+                    name:           'title',
+                    displayField:   'name',
+                    valueField:     'value',
+                    queryMode: 'local',
+                    store:          Ext.create('Ext.data.Store', {
+                        fields : ['name', 'value'],
+                        data   : [{
+                            name : 'Univ',  
+                            value: 'Univ'
+                        },{
+                            name : 'Lic', 
+                            value: 'Lic'
+                        },{
+                            name : 'Ing', 
+                            value: 'Ing'
+                        }]
+                    })
+                },
+                {
+                    xtype: 'textfield',
+                    flex : 1,
+                    name : 'first_name',
+                    fieldLabel: 'Nombres',
+                    allowBlank: false
+                },
+                {
+                    xtype: 'textfield',
+                    flex : 1,
+                    name : 'last_name',
+                    fieldLabel: 'Apellidos',
+                    allowBlank: false,
+                    margins: '0'
+                }]
+                    
+            },{
                 xtype: 'container',
+                style: {
+                    paddingTop:'15px', 
+                    paddingBottom:'15px'
+                },
                 layout:'column',                
                 items:[{
                     xtype: 'container',
-                    columnWidth:.50,
+                    columnWidth:0.50,
                     layout: 'anchor',
                     items: [{
                         xtype: 'textfield',
                         afterLabelTextTpl: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>',
-                        name : 'account_name',
-                        fieldLabel: 'Nombre',
+                        name : 'email',
+                        fieldLabel: 'Email de contacto',
                         msgTarget: 'side',
                         allowBlank: false,
-                        anchor:'95%'
+                        anchor:'95%',
+                        vtype:'email'
                     }]
                 },{
                     xtype: 'container',
@@ -40,24 +102,35 @@ Ext.define('labinfsis.hosting.view.account.Form', {
                     layout: 'anchor',
                     bodyStyle: 'backgrounf: transparent;',
                     items: [{
-                        xtype: 'serverselector',
-                        name : 'servers',
-                        fieldLabel: 'Habilitar cuenta en los Servidores',
+                        xtype: 'textfield',
+                        name : 'phone',
+                        fieldLabel: 'Telefono de contacto',
                         afterLabelTextTpl: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>',
                         msgTarget: 'side',
                         allowBlank: false,
                         anchor:'100%'
                     }]
                 }]
+            },{                
+                xtype: 'textfield',
+                afterLabelTextTpl: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>',
+                name : 'account_name',
+                fieldLabel: 'Nombre de la cuenta',
+                msgTarget: 'side',
+                allowBlank: false,
+                anchor:'65%'
             },{
                 xtype: 'container',
+                style: {
+                    paddingTop:'15px '
+                },
                 layout:'column',                
                 items:[{
                     xtype: 'container',
                     columnWidth:.50,
                     layout: 'anchor',
                     items: [{
-                        xtype: 'textfield',
+                        xtype: 'passwordmeter',
                         afterLabelTextTpl: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>',
                         name : 'account_password',
                         fieldLabel: 'Contraseña',
@@ -71,7 +144,7 @@ Ext.define('labinfsis.hosting.view.account.Form', {
                     layout: 'anchor',
                     bodyStyle: 'backgrounf: transparent;',
                     items: [{
-                        xtype: 'textfield',
+                        xtype: 'passwordmeter',
                         name : 'account_password_repeat',
                         fieldLabel: 'Repetir contraseña',
                         afterLabelTextTpl: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>',
@@ -82,16 +155,52 @@ Ext.define('labinfsis.hosting.view.account.Form', {
                 }]
             },{
                 xtype: 'container',
-                defaultType: 'radio', // each item will be a radio button
+                style: {
+                    paddingTop:'15px'
+                },
+                layout:'column',                
+                items:[{
+                    xtype: 'container',
+                    columnWidth:0.40,
+                    layout: 'anchor',
+                    items: [{
+                        xtype: 'datefield',
+                        name : 'expired',
+                        fieldLabel: 'Fecha expiracion',
+                        msgTarget: 'side',
+                        anchor:'95%'
+                    }]
+                },{
+                    xtype: 'container',
+                    columnWidth:.60,
+                    layout: 'anchor',
+                    bodyStyle: 'backgrounf: transparent;',
+                    items: [{
+                        xtype: 'serverselector',
+                        name : 'servers',
+                        fieldLabel: 'Habilitar cuenta en los Servidores',
+                        afterLabelTextTpl: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>',
+                        msgTarget: 'side',
+                        allowBlank: false,
+                        editable: false,
+                        anchor:'100%'
+                    }]
+                }]
+            },{
+                xtype: 'container',
+                style: {
+                    paddingTop:'15px'
+                },
+                defaultType: 'radio',
                 layout: 'anchor',
                 defaults: {
                     anchor: '100%',
-                    hideEmptyLabel: false,
+                    hideEmptyLabel: false
                 },
                 items: [ {
                     checked: true,
                     fieldLabel: 'Carpeta home del Usuario',
-                    boxLabel: '/srv/cuenta.cs.umss.edu.bo',
+                    boxLabel: '{Directorio de trabajo del servidor}',
                     name: 'home_dir_config',
                     inputValue: 'server_config'
                 }, {
@@ -116,6 +225,10 @@ Ext.define('labinfsis.hosting.view.account.Form', {
                     
             },{
                 xtype: 'container',
+                style: {
+                    paddingTop:'15px', 
+                    paddingBottom:'15px'
+                },
                 defaultType: 'radio', // each item will be a radio button
                 layout: 'anchor',
                 defaults: {
@@ -132,31 +245,32 @@ Ext.define('labinfsis.hosting.view.account.Form', {
                         hideLabel: true,
                         xtype:'radio'
                     },
-                    items:[{                        
+                    items:[{
+                        checked: true,
                         boxLabel: '50 Mb', 
-                        name: 'quota', 
+                        name: 'quota_limit', 
                         inputValue: 50,
                         margins: '0 15 0 0'
                     },{
                         boxLabel: '100 Mb', 
-                        name: 'quota', 
+                        name: 'quota_limit', 
                         inputValue: 100,
                         margins: '0 15 0 0'
                     },{
                         boxLabel: '', 
-                        name: 'quota', 
+                        name: 'quota_limit', 
                         inputValue: 1
                     },{ 
                         xtype:'textfield',
-                        name:'home_dir',
+                        name:'quota_limit',
                         width: 35
                     },{
                         xtype: 'displayfield', 
-                        value: 'Mb',
+                        value: '&nbsp;Mb',
                         margins: '0 15 0 0'
                     },{
                         boxLabel: 'Ilimitado', 
-                        name: 'quota', 
+                        name: 'quota_limit', 
                         inputValue: 0
                     }]
                     

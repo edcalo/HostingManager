@@ -4,15 +4,24 @@ Ext.define('labinfsis.hosting.store.Accounts', {
     autoLoad: true,
     proxy: {
         type: 'ajax',
+        method:'POST',
         api: {
             read: 'accounts',
-            update: 'accounts/edit'
+            create: 'accounts/add',
+            update: 'accounts/edit',
+            destroy: 'accounts/delete'
         },
         reader: {
             type: 'json',
             root: 'data',
             successProperty: 'success',
             totalProperty: 'total'
+        },
+        writer: {
+            type: 'json',
+            writeAllFields: true,
+            root: 'data',
+            encode:true
         }
     }
 });
