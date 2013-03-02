@@ -37,7 +37,7 @@ Ext.define('labinfsis.hosting.view.server.List' ,{
             tpl: [
                 // '<div class="details">',
                 '<tpl for=".">',
-                '<div class="thumb-wrap <tpl if="is_saved == false">icon-error</tpl> <tpl if="is_saved == true">icon-ok</tpl>" data-qtip="<b>Nombre:</b> {server_name} <br ><b>Descripción:</b>{server_description}">',
+                '<div class="thumb-wrap <tpl if="is_saved == false">icon-error</tpl> <tpl if="is_saved == true">icon-ok</tpl>" data-qtip="<b>Nombre:</b> {server_name} <br ><b>Diretorio de trabajo:</b>{work_dir}<br><b>Descripción:</b>{server_description}">',
                 '<div class="thumb">',
                 (!Ext.isIE6? '<img src="/img/icons/hosting/server/generic_server.png" />' : '<div style="width:74px;height:74px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'/img/icons/hosting/server/generic_server.png\')"></div>'),
                 '</div>',

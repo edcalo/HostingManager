@@ -430,3 +430,74 @@
 #3 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(AccountsController), Object(CakeRequest), Object(CakeResponse))
 #4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2013-02-28 23:53:33 Error: [MissingControllerException] Controller class WebrootController could not be found.
+#0 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-03-01 03:49:19 Error: Fatal Error (1): Cannot use string offset as an array in [D:\elvis.caceres\Dropbox\My projects\HostingManager\src\Controller\AccountsController.php, line 88]
+2013-03-01 03:49:19 Error: [FatalErrorException] Cannot use string offset as an array
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Cannot use stri...', 'D:\elvis.cacere...', 88)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use stri...', 'D:\elvis.cacere...', 88, Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Cannot use stri...', 'D:\elvis.cacere...', 88, Array)
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-01 04:02:19 Error: Fatal Error (1): Cannot use string offset as an array in [D:\elvis.caceres\Dropbox\My projects\HostingManager\src\Controller\AccountsController.php, line 92]
+2013-03-01 04:02:19 Error: [FatalErrorException] Cannot use string offset as an array
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Cannot use stri...', 'D:\elvis.cacere...', 92)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use stri...', 'D:\elvis.cacere...', 92, Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Cannot use stri...', 'D:\elvis.cacere...', 92, Array)
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-01 04:04:04 Error: Fatal Error (1): Cannot use string offset as an array in [D:\elvis.caceres\Dropbox\My projects\HostingManager\src\Controller\AccountsController.php, line 93]
+2013-03-01 04:04:04 Error: [FatalErrorException] Cannot use string offset as an array
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Cannot use stri...', 'D:\elvis.cacere...', 93)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use stri...', 'D:\elvis.cacere...', 93, Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Cannot use stri...', 'D:\elvis.cacere...', 93, Array)
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-01 04:07:07 Error: Fatal Error (1): Cannot use string offset as an array in [D:\elvis.caceres\Dropbox\My projects\HostingManager\src\View\Accounts\add.ctp, line 5]
+2013-03-01 04:07:07 Error: [FatalErrorException] Cannot use string offset as an array
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Cannot use stri...', 'D:\elvis.cacere...', 5)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use stri...', 'D:\elvis.cacere...', 5, Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Cannot use stri...', 'D:\elvis.cacere...', 5, Array)
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-01 04:15:42 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'uid' cannot be null
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(459): PDOStatement->execute(Array)
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(425): DboSource->_execute('INSERT INTO `ho...', Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(1007): DboSource->execute('INSERT INTO `ho...')
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Model.php(1730): DboSource->create(Object(Account), Array, Array)
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\Controller\AccountsController.php(139): Model->save(Array)
+#5 [internal function]: AccountsController->admin_add()
+#6 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(AccountsController), Array)
+#7 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(AccountsController), Object(CakeRequest), Object(CakeResponse))
+#9 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-03-01 04:16:09 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'count' cannot be null
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(459): PDOStatement->execute(Array)
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(425): DboSource->_execute('INSERT INTO `ho...', Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(1007): DboSource->execute('INSERT INTO `ho...')
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Model.php(1730): DboSource->create(Object(Account), Array, Array)
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\Controller\AccountsController.php(139): Model->save(Array)
+#5 [internal function]: AccountsController->admin_add()
+#6 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(AccountsController), Array)
+#7 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(AccountsController), Object(CakeRequest), Object(CakeResponse))
+#9 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-03-01 04:17:37 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'count' cannot be null
+#0 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(459): PDOStatement->execute(Array)
+#1 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(425): DboSource->_execute('INSERT INTO `ho...', Array)
+#2 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Datasource\DboSource.php(1007): DboSource->execute('INSERT INTO `ho...')
+#3 C:\xampp\cakephp-2.2.3\lib\Cake\Model\Model.php(1730): DboSource->create(Object(Account), Array, Array)
+#4 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\Controller\AccountsController.php(140): Model->save(Array)
+#5 [internal function]: AccountsController->admin_add()
+#6 C:\xampp\cakephp-2.2.3\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(AccountsController), Array)
+#7 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\cakephp-2.2.3\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(AccountsController), Object(CakeRequest), Object(CakeResponse))
+#9 D:\elvis.caceres\Dropbox\My projects\HostingManager\src\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}

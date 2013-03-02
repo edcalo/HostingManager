@@ -5,12 +5,10 @@ Ext.define('labinfsis.hosting.model.Server', {
         type: 'int',
         mapping: 'id'
     },
-    'server_name'
-    ,{
-        name:'fully_qualified_domain_name',
-        type:'string',
-        mapping: 'fully_qualified_domain_name'
-    },'ip',
+    'server_name',
+    'fully_qualified_domain_name',
+    'work_dir',
+    'ip',
     'server_description',
     'members',
     'services',

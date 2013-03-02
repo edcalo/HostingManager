@@ -61,6 +61,13 @@ Ext.define('labinfsis.hosting.view.server.Form', {
                 msgTarget: 'side',
                 allowBlank: false,
                 anchor:'100%'
+            }, {
+                xtype: 'textfield',
+                name : 'work_dir',
+                fieldLabel: 'Directorio de trabajo',
+                msgTarget: 'side',
+                allowBlank: false,
+                anchor:'100%'
             },{
                 xtype: 'htmleditor',
                 name : 'server_description',

@@ -11,7 +11,7 @@ class AccountActivity extends AppModel {
  *
  * @var string
  */
-	public $displayField = 'detail_activity';
+	public $displayField = 'account_name';
 
 /**
  * Validation rules

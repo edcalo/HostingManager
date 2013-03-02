@@ -18,7 +18,7 @@ class AccountAccess extends AppModel {
  *
  * @var string
  */
-	public $displayField = 'action';
+	public $displayField = 'account_name';
 
 /**
  * Validation rules

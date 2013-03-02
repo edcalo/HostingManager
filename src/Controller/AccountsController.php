@@ -43,7 +43,10 @@ class AccountsController extends AppController {
     public function add() {
         $this->layout = 'ajax';
         if (!empty($this->request->data)) {
+            
             $datos = json_decode(stripslashes($this->request->data)); //decodificamos la informacion
+            echo is_array($datos);
+                       print_r($datos);
 
             $user = array(
                 'user_name' => $datos->account_name,
@@ -55,7 +58,6 @@ class AccountsController extends AppController {
                 'status' => 1
             );
 
-            $servers = explode(',', $datos->servers);
             if ($datos->quota_limit[0] == 1) {
                 $quota_limit = $datos->quota_limit[1] * 1048576;
             } else {
@@ -65,26 +67,37 @@ class AccountsController extends AppController {
                     $quota_limit = $datos->quota_limit[0] * 1048576;
                 }
             }
-            $quota = array('QuotaLimit' => array(
-                    'account_name' => $datos->account_name,
-                    'bytes_in_avail' => $quota_limit
-                    ));
-            $account = array('Account' => array(
-                    'account_name' => $datos->account_name,
-                    'account_password' => $datos->account_password,
-                    'account_description' => $datos->account_description,
-                    'expired' => date('Y-m-d H:i:s'),
-                    'home_dir' => $datos->home_dir == "" ? "/srv/" . $datos->account_name : $datos->home_dir,
-                    'status' => 1
-                    ));
-            $this->request->data = $account;
-            $this->request->data['User'] = $user;
-            $this->request->data['Server'] = $servers;
-            $this->request->data['QuotaLimit'] = $quota;
-
-            if ($this->Account->saveAll($this->request->data)) {
+            $quota = array(
+                'account_name' => $datos->account_name,
+                'bytes_in_avail' => $quota_limit
+            );
+            
+            $account_data = array(
+                'account_name' => $datos->account_name,
+                'account_password' => $datos->account_password,
+                'account_description' => $datos->account_description,
+                'expired' => date('Y-m-d H:i:s'),
+                'home_dir' => $datos->home_dir == "" ? "/srv/" . $datos->account_name : $datos->home_dir,
+                'status' => $datos->status
+            );
+            
+            $data= array('User'=>$user);
+            
+            $servers = explode(',', $datos->servers);
+            $accounts = array();
+            
+            foreach ($servers as $server) {
+                $account = array();
+                $account_data['server_id'] = $server;
+                $account['Account'] = $account_data;
+                $account['Account']['QuotaLimit']= $quota;
+                array_push($accounts, $account);
+            }
+            $data['Account']=$accounts;
+            if ($this->Account->User->saveAssociated($data, array('deep' => true))===true) {
                 $this->set('saved', 1);
-                $this->request->data['Account']['id'] = $this->Account->id;
+                $account_data['id'] = $this->Account->id;
+                $this->set('account', $account_data);
             } else {
                 $this->set('saved', 0);
             }
@@ -137,7 +150,7 @@ class AccountsController extends AppController {
                     'account_description' => $datos->account_description,
                     'expired' => date('Y-m-d H:i:s'),
                     'home_dir' => $datos->home_dir == "" ? "/srv/" . $datos->account_name : $datos->home_dir,
-                    'status' => 1
+                    'status' => $datos->status
                     ));
             $this->request->data = $account;
             $this->request->data['User'] = $user;
@@ -178,13 +191,13 @@ class AccountsController extends AppController {
                         'bytes_in_avail' => $quota_limit
                         ));
                 $account = array('Account' => array(
-                    'id' => $datos->id,
+                        'id' => $datos->id,
                         'account_name' => $datos->account_name,
                         'account_password' => $datos->account_password,
                         'account_description' => $datos->account_description,
                         'expired' => date('Y-m-d H:i:s'),
                         'home_dir' => $data_account->home_dir == "" ? "/srv/" . $data_account->account_name : $data_account->home_dir,
-                        'status' => 1
+                        'status' => $data_account->status
                         ));
                 $account_data = $account;
                 $account_data['User'] = $user;

@@ -2,14 +2,14 @@
 
 switch ($saved) {
     case 1: {
-            $this->request->data['Server']['is_save'] = true;
+            //$this->request->data['Server']['is_save'] = true;
             $respuesta = array(
                 'success' => true,
                 'mensage' => array(
                     'titulo' => 'Cuenta guardado',
                     'msg' => 'La nueva ceunta fue guardada con exito en el catalogo del sistema'
                 ),
-                'data' => $this->request->data['Account']
+                'data' => $account
             );
             print json_encode($respuesta);
         } break;

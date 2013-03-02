@@ -2,6 +2,7 @@ Ext.define('labinfsis.hosting.store.Accounts', {
     extend: 'Ext.data.Store',
     model: 'labinfsis.hosting.model.Account',
     autoLoad: true,
+    groupField: 'servers',
     proxy: {
         type: 'ajax',
         method:'POST',

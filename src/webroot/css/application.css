@@ -1,7 +1,7 @@
 ﻿body, .x-body {
     font-family: arial,verdana,sans-serif;
     font-size: 12px;
-	color: black;
+    color: black;
 }
 
 #header{
@@ -36,7 +36,7 @@ img.img_left{
     margin:0px;
     padding:20px 20px 5px 30px;
     text-align:justify;
-	font-size: 16px;
+    font-size: 16px;
 }
 .center_text h1{
     color:#1E4E8F;
@@ -56,7 +56,7 @@ img.img_left{
 .right_content{
     width:55%;
     float:left;
-    
+
 }
 .news_tab{
     clear:both;
@@ -173,4 +173,22 @@ ol.commentlist {
 }
 .x-boundlist-selected img.chkCombo{
     background: transparent url('http://localhost/libs/extjs-4.1.1/resources/themes/images/default/menu/checked.gif');
+}
+.account-expired, .account-enable, .account-disable, .account-quota_exeded{
+    font-weight: bold;
+}
+
+.account-expired
+{
+    color: #fcf8e3;
+}
+.account-enable
+{
+    color: #dff0d8;
+}
+.account-disable{
+    color: #f2dede;
+}
+.account-quota_exeded{
+    color: #d9edf7;
 }

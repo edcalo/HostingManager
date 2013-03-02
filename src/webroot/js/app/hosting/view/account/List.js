@@ -3,9 +3,7 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
     store: 'Accounts',
     alias : 'widget.accounts',      
     initComponent: function() {
-        this.columns = [
-        Ext.create('Ext.grid.RowNumberer'),
-        {
+        this.columns = [{
             header: 'Servidor',
             dataIndex: 'servers',
             renderer: function(value, metaData, record, rowIndex, colIndex, store){                
@@ -19,19 +17,26 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
                 }
             }
         },{
-            header:'Usuario',
+            header:'Nombre y Apellido',
             dataIndex:'first_name',
             renderer: function(value, metaData, record, rowIndex, colIndex, store){ 
                 return value+'  '+record.get('last_name'); 
-            }
+            },
+            flex:1
         },{
-            header: 'Cuenta',
-            dataIndex: 'account_name'
+            header: 'Nombre de la Cuenta',
+            dataIndex: 'account_name',
+            flex:1
         },{
-            header: 'Email',
-            dataIndex: 'email'
+            header: 'Email de contacto',
+            dataIndex: 'email',
+            flex:1
         },{
-            header: 'Quota',
+            header: 'Directorio de Trabajo',
+            dataIndex: 'home_dir',
+            flex:1
+        },{
+            header: 'Quota de disco',
             dataIndex: 'quota_limit',
             width:100,
             renderer: function (value, metaData, record, rowIndex, colIndex, store) {
@@ -57,10 +62,6 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
                 }
                 return Ext.String.format('<div id="{0}"></div>', id);
             }
-        },{
-            header: 'Directorio de Trabajo',
-            dataIndex: 'home_dir',
-            flex:1
         },{
             header: 'Ultimo Acceso',
             dataIndex: 'accessed',
@@ -101,31 +102,40 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
                 }
             }]
         }];
-    this.title="Lista de Cuentas";
         this.viewConfig= {
-            stripeRows: true,
-            enableTextSelection: true
+            stripeRows: false,
+            enableTextSelection: true,
+            getRowClass: function (record, rowIndex, rowParams, store) {
+                var status = record.get('status');
+                var result = '';
+                switch(status){
+                    case 'expired':
+                        result = 'account-expired';
+                        break;
+                    case 'enable':
+                        result = 'account-enable';
+                        break;
+                    case 'disable':
+                        result = 'account-disable';
+                        break;
+                    case 'quota_exeded':
+                        result = 'account-quota_exeded';
+                        break;
+                }
+                return result;
+            }
         
         };
-        this.groupField = 'server';
+        this.groupField = 'servers';
         this.hideGroupedHeader = true;
         var sm = Ext.create('Ext.selection.CheckboxModel');
         this.selModel = sm;
         var groupingFeature = Ext.create('Ext.grid.feature.Grouping',{
-            groupHeaderTpl: 'Grupo: {server} ({rows.length} Item{[values.rows.length > 1 ? "s" : ""]})'
+            groupHeaderTpl: '{columnName}: {name} ({rows.length} cuenta{[values.rows.length > 1 ? "s" : ""]})',
+            hideGroupedHeader: true
         });
         this.features = [groupingFeature];
-        this.tbar = [{                     
-            text: 'Registrar',
-            iconCls: 'icon-add'
-                        
-        },{
-            text: 'Modificar',                 
-            iconCls: 'icon-edit'
-        },{
-            text: 'Eliminar',
-            iconCls:'icon-delete'
-        }];
+        
         this.bbar= Ext.create('Ext.PagingToolbar', {
             store: this.store,
             displayInfo: true,

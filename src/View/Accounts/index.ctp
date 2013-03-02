@@ -2,6 +2,7 @@
 
 $datos = array();
 /* servers,quota_limit,quota_tall */
+//print_r($accounts);
 foreach ($accounts as $account) {
     $data_account = array(
         'id' => $account['Account']['id'],
@@ -24,32 +25,23 @@ foreach ($accounts as $account) {
         'is_active' => $account['Account']['status'] == 'enable',
         'is_delete' => $account['User']['is_delete'],
     );
-    if (count($account['QuotaLimit']) > 0) {
-        $bytes = $account['QuotaLimit'][0]['bytes_in_avail'];
-        $data_account['quota_limit'] = $bytes / 1048576;
-    } else {
+    if (empty($account['QuotaLimit'])) {
         $data_account['quota_limit'] = 0;
-    }
-
-    if (count($account['QuotaTally']) > 0) {
-        $bytes = $account['QuotaTally'][0]['bytes_in_avail'];
-        $data_account['quota_tall'] = $bytes / 1048576;
     } else {
+        $bytes = $account['QuotaLimit']['bytes_in_avail'];
+        $data_account['quota_limit'] = $bytes / 1048576;
+    }
+
+    if (empty($account['QuotaTally'])) {
         $data_account['quota_tall'] = 0;
+    } else {
+        $bytes = $account['QuotaTally']['bytes_in_used'];
+        $data_account['quota_tall'] = $bytes / 1048576;
     }
-    
-    $servers = array();
-    foreach ($account['Server'] as $server) {
-        array_push($servers, $server['id']);
-        $data_account['id'] = $account['Account']['id'].".".$server['id'];
-        $data_account['servers'] = $server['server_name'];
-        array_push($datos, $data_account);
-    }
-    //$data_account['servers'] = implode(',', $servers);
 
-    
+    $data_account['servers'] = $account['Server']['server_name'];
 
-    //array_push($datos, $data_account);
+    array_push($datos, $data_account);
 }
 $respuesta = array(
     'success' => true,

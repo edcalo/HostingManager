@@ -1,4 +1,4 @@
-    Ext.define('labinfsis.hosting.view.account.Form', {
+Ext.define('labinfsis.hosting.view.account.Form', {
     extend: 'Ext.window.Window',
     alias : 'widget.account',
     title : 'Registrar cuenta',
@@ -72,7 +72,7 @@
                     name : 'last_name',
                     fieldLabel: 'Apellidos',
                     allowBlank: false,
-                    margins: '0'
+                    margins:'0 0 0 5'
                 }]
                     
             },{
@@ -111,14 +111,59 @@
                         anchor:'100%'
                     }]
                 }]
-            },{                
-                xtype: 'textfield',
-                afterLabelTextTpl: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>',
-                name : 'account_name',
-                fieldLabel: 'Nombre de la cuenta',
-                msgTarget: 'side',
-                allowBlank: false,
-                anchor:'65%'
+            },{
+                xtype: 'container',
+                
+                layout:'column',                
+                items:[{
+                    xtype: 'container',
+                    columnWidth:0.65,
+                    layout: 'anchor',
+                    items: [{
+                        xtype: 'textfield',
+                        afterLabelTextTpl: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>',
+                        name : 'account_name',
+                        fieldLabel: 'Nombre de la cuenta',
+                        msgTarget: 'side',
+                        allowBlank: false,
+                        anchor:'95%'
+                    }]
+                },{
+                    xtype: 'container',
+                    columnWidth:.35,
+                    layout: 'anchor',
+                    bodyStyle: 'backgrounf: transparent;',
+                    items: [{
+                            fieldLabel: 'Estad de la cuenta',
+                        xtype:          'combo',
+                        mode:           'local',
+                        value:          'disable',
+                        triggerAction:  'all',
+                        forceSelection: true,
+                        editable:       false,
+                        name:           'status',
+                        displayField:   'name',
+                        valueField:     'value',
+                        queryMode: 'local',
+                        anchor:'100%',
+                        store:          Ext.create('Ext.data.Store', {
+                            fields : ['name', 'value'],
+                            data   : [{
+                                name : 'Deshabilitado',  
+                                value: 'disable'
+                            },{
+                                name : 'Habilitado',  
+                                value: 'enable'
+                            },{
+                                name : 'Expirado', 
+                                value: 'expired'
+                            },{
+                                name : 'Quorta excedida', 
+                                value: 'quota_exeded'
+                            }]
+                        })
+                    }]
+                }]
             },{
                 xtype: 'container',
                 style: {
