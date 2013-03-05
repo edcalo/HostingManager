@@ -1,8 +1,7 @@
 <?php
 
 $datos = array();
-/* servers,quota_limit,quota_tall */
-//print_r($accounts);
+
 foreach ($accounts as $account) {
     $data_account = array(
         'id' => $account['Account']['id'],

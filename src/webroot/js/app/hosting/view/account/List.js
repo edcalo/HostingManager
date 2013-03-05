@@ -104,7 +104,7 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
         }];
         this.viewConfig= {
             stripeRows: false,
-            enableTextSelection: true,
+            enableTextSelection: false,
             getRowClass: function (record, rowIndex, rowParams, store) {
                 var status = record.get('status');
                 var result = '';

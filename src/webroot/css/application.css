@@ -174,21 +174,38 @@ ol.commentlist {
 .x-boundlist-selected img.chkCombo{
     background: transparent url('http://localhost/libs/extjs-4.1.1/resources/themes/images/default/menu/checked.gif');
 }
-.account-expired, .account-enable, .account-disable, .account-quota_exeded{
-    font-weight: bold;
+/*.account-expired .x-grid-cell {
+    background-color: #fcf8e3;
 }
 
-.account-expired
-{
-    color: #fcf8e3;
+.account-enable .x-grid-cell {
+    background-color: #dff0d8;
 }
-.account-enable
-{
-    color: #dff0d8;
+
+.account-disable .x-grid-cell {
+    background-color: #f2dede;
 }
-.account-disable{
-    color: #f2dede;
+
+.account-quota_exeded .x-grid-cell {
+    background-color: #d9edf7;
+}*/
+
+.account-expired  {
+    color: #9F6000;
 }
-.account-quota_exeded{
-    color: #d9edf7;
+
+.account-enable  {
+    color: #4F8A10;
+}
+
+.account-disable  {
+    color: #D8000C;
+}
+
+.account-quota_exeded {
+    color: #00529B;
+}
+/* style rows on mouseover */
+.x-grid-row-over .x-grid-cell-inner {
+    font-weight: bold;
 }

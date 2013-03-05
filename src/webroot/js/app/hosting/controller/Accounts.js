@@ -1,14 +1,14 @@
 Ext.define('labinfsis.hosting.controller.Accounts', {
     extend: 'Ext.app.Controller',
     stores: [
-        'Accounts'
+    'Accounts'
     ],
     models: [
-        'Account'
+    'Account'
     ],
     views: [
-        'account.List',
-        'account.Form'
+    'account.List',
+    'account.Form'
     ],
     init: function() {
         this.control({
@@ -37,14 +37,18 @@ Ext.define('labinfsis.hosting.controller.Accounts', {
         if(form.getForm().isValid()){
             var record = form.getRecord();
             var values = form.getValues();
-            var servers = values.servers
+            var servers = values.servers;            
+
             if(!record){
-                record = this.getAccountModel().create();
                 
-                values.servers = servers.join(',');
-                record.set(values);
+                Ext.each(servers, function(server) {
+                    record = this.getAccountModel().create();
+                    values.servers = server;
+                    record.set(values);
                 
-                this.getAccountsStore().insert(0, record);
+                    this.getAccountsStore().insert(0, record);
+                }, this);
+                
             }else{
                 values.servers = servers.join(',');
                 record.set(values);

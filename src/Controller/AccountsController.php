@@ -43,61 +43,96 @@ class AccountsController extends AppController {
     public function add() {
         $this->layout = 'ajax';
         if (!empty($this->request->data)) {
-            
+
             $datos = json_decode(stripslashes($this->request->data)); //decodificamos la informacion
-            echo is_array($datos);
-                       print_r($datos);
+            $data = array();
+            if (is_array($datos)) {
+                $user = array(
+                    'user_name' => $datos[0]->account_name,
+                    'title' => $datos[0]->title,
+                    'first_name' => $datos[0]->first_name,
+                    'last_name' => $datos[0]->last_name,
+                    'email' => $datos[0]->email,
+                    'phone' => $datos[0]->phone,
+                    'status' => 1
+                );
+                $data['User'] = $user;
+                $accounts = array();
+                foreach ($datos as $data_new_account) {
 
-            $user = array(
-                'user_name' => $datos->account_name,
-                'title' => $datos->title,
-                'first_name' => $datos->first_name,
-                'last_name' => $datos->last_name,
-                'email' => $datos->email,
-                'phone' => $datos->phone,
-                'status' => 1
-            );
+                    if ($data_new_account->quota_limit[0] == 1) {
+                        $quota_limit = $data_new_account->quota_limit[1] * 1048576;
+                    } else {
+                        if ($data_new_account->quota_limit[0] == 0) {
+                            $quota_limit = $data_new_account->quota_limit[0];
+                        } else {
+                            $quota_limit = $data_new_account->quota_limit[0] * 1048576;
+                        }
+                    }
+                    $quota = array(
+                        'account_name' => $data_new_account->account_name,
+                        'bytes_in_avail' => $quota_limit
+                    );
 
-            if ($datos->quota_limit[0] == 1) {
-                $quota_limit = $datos->quota_limit[1] * 1048576;
-            } else {
-                if ($datos->quota_limit[0] == 0) {
-                    $quota_limit = $datos->quota_limit[0];
-                } else {
-                    $quota_limit = $datos->quota_limit[0] * 1048576;
+                    $account_data = array('Account' => array(
+                            'account_name' => $data_new_account->account_name,
+                            'account_password' => $data_new_account->account_password,
+                            'account_description' => $data_new_account->account_description,
+                            'expired' => date('Y-m-d H:i:s'),
+                            'home_dir' => $data_new_account->home_dir == "" ? "/srv/" . $data_new_account->account_name : $data_new_account->home_dir,
+                            'status' => $data_new_account->status,
+                            'server_id' => $data_new_account->servers,
+                            'QuotaLimit' => $quota
+                        )
+                    );
+                    array_push($accounts, $account_data);
                 }
+                $data['Account'] = $accounts;
+            } else {
+                $user = array(
+                    'user_name' => $datos->account_name,
+                    'title' => $datos->title,
+                    'first_name' => $datos->first_name,
+                    'last_name' => $datos->last_name,
+                    'email' => $datos->email,
+                    'phone' => $datos->phone,
+                    'status' => 1
+                );
+                $data['User'] = $user;
+                $accounts = array();
+                if ($datos->quota_limit[0] == 1) {
+                    $quota_limit = $datos->quota_limit[1] * 1048576;
+                } else {
+                    if ($datos->quota_limit[0] == 0) {
+                        $quota_limit = $datos->quota_limit[0];
+                    } else {
+                        $quota_limit = $datos->quota_limit[0] * 1048576;
+                    }
+                }
+                $quota = array(
+                    'account_name' => $datos->account_name,
+                    'bytes_in_avail' => $quota_limit
+                );
+
+                $account_data = array('Account' => array(
+                        'account_name' => $datos->account_name,
+                        'account_password' => $datos->account_password,
+                        'account_description' => $datos->account_description,
+                        'expired' => date('Y-m-d H:i:s'),
+                        'home_dir' => $datos->home_dir == "" ? "/srv/" . $datos->account_name : $datos->home_dir,
+                        'status' => $datos->status,
+                        'server_id' => $datos->servers,
+                        'QuotaLimit' => $quota
+                    )
+                );
+                array_push($accounts, $account_data);
+
+                $data['Account'] = $accounts;
             }
-            $quota = array(
-                'account_name' => $datos->account_name,
-                'bytes_in_avail' => $quota_limit
-            );
-            
-            $account_data = array(
-                'account_name' => $datos->account_name,
-                'account_password' => $datos->account_password,
-                'account_description' => $datos->account_description,
-                'expired' => date('Y-m-d H:i:s'),
-                'home_dir' => $datos->home_dir == "" ? "/srv/" . $datos->account_name : $datos->home_dir,
-                'status' => $datos->status
-            );
-            
-            $data= array('User'=>$user);
-            
-            $servers = explode(',', $datos->servers);
-            $accounts = array();
-            
-            foreach ($servers as $server) {
-                $account = array();
-                $account_data['server_id'] = $server;
-                $account['Account'] = $account_data;
-                $account['Account']['QuotaLimit']= $quota;
-                array_push($accounts, $account);
-            }
-            $data['Account']=$accounts;
-            if ($this->Account->User->saveAssociated($data, array('deep' => true))===true) {
+            if ($this->Account->User->saveAssociated($data, array('deep' => true)) === true) {
                 $this->set('saved', 1);
-                $account_data['id'] = $this->Account->id;
-                $this->set('account', $account_data);
+                $this->Account->User->recursive = 2;
+                $this->set('result', $this->Account->User->read(null, $this->Account->User->id));
             } else {
                 $this->set('saved', 0);
             }
