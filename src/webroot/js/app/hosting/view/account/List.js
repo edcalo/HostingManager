@@ -41,25 +41,25 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
             width:100,
             renderer: function (value, metaData, record, rowIndex, colIndex, store) {
                 var id = Ext.id();
-                if(value > 0){                   
-                    var valor = record.get('quota_tall')*100/value;
-                    Ext.defer(function () {
-                        Ext.widget('progressbar', {
-                            renderTo: id,
-                            value: valor/100,
-                            text: record.get('quota_tall') + " / "+ value + " Mb" 
-                        });
-                    }, 50);
-                    
-                }else{
-                    Ext.defer(function () {
-                        Ext.widget('progressbar', {
-                            renderTo: id,
-                            value: 0,
-                            text: " Ilimitado" 
-                        });
-                    }, 50);
-                }
+                Ext.defer(function () {
+                    if(Ext.get(id)){
+                        if(value > 0){
+                            var valor = record.get('quota_tall')*100/value;
+                            Ext.widget('progressbar', {
+                                renderTo: id,
+                                value: (valor / 100),
+                                text: record.get('quota_tall') + " / "+ value + " Mb",
+                                flex: 1
+                            });
+                        }else{
+                            Ext.widget('progressbar', {
+                                renderTo: id,
+                                value: 0,
+                                text: " Ilimitado" 
+                            });
+                        }
+                    }
+                }, 50);
                 return Ext.String.format('<div id="{0}"></div>', id);
             }
         },{
@@ -72,35 +72,6 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
             dataIndex:'expired',
             xtype:'datecolumn',
             format:'d/m/Y'
-        },{
-            menuDisabled: true,
-            sortable: false,
-            xtype: 'actioncolumn',
-            width: 50,
-            items: [/*{
-                getClass: function(v, meta, rec) {          // Or return a class from a function
-                    if (rec.get('change') < 0) {
-                        this.items[1].tooltip = 'Hold stock';
-                        return 'alert-col';
-                    } else {
-                        this.items[1].tooltip = 'Buy stock';
-                        return 'buy-col';
-                    }
-                },
-                icon   : '/img/icons/shared/16x16/delete16x16.png',  // Use a URL in the icon config
-                tooltip: 'Delete account',
-                handler: function(grid, rowIndex, colIndex) {
-                    //var rec = store.getAt(rowIndex);
-                    alert("??");
-                }
-            },*/{
-                icon   : '/img/icons/shared/16x16/lock_break.png',  // Use a URL in the icon config
-                tooltip: 'Reset password',
-                handler: function(grid, rowIndex, colIndex) {
-                    //var rec = store.getAt(rowIndex);
-                    alert("?");
-                }
-            }]
         }];
         this.viewConfig= {
             stripeRows: false,
@@ -135,7 +106,7 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
             hideGroupedHeader: true
         });
         this.features = [groupingFeature];
-        
+        this.border=false;
         this.bbar= Ext.create('Ext.PagingToolbar', {
             store: this.store,
             displayInfo: true,

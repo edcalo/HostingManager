@@ -41,12 +41,9 @@ Ext.application({
                 xtype:'accounts',
                 region:'center'
             },{
-                title: 'Detalle de la cuenta seleccionada',
-                collapsible: true,
                 region:'east',
                 html:'Detalle de la cuenta esto sera un user_ftp.View',
-                width:400,
-                margins: '0 0 5 5'
+                width:400
 
             }],
             tbar:[{

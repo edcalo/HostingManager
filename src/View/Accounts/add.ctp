@@ -49,7 +49,7 @@ switch ($saved) {
                     'titulo' => 'Cuenta guardado',
                     'msg' => 'La nueva ceunta fue guardada con exito en el catalogo del sistema'
                 ),
-                'data' => $data
+                'data' => count($data)===1?$data[0]:$data
             );
             print json_encode($respuesta);
         } break;
