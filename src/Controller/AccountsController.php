@@ -100,13 +100,13 @@ class AccountsController extends AppController {
                 );
                 $data['User'] = $user;
                 $accounts = array();
-                if ($datos->quota_limit[0] == 1) {
-                    $quota_limit = $datos->quota_limit[1] * 1048576;
+                if ($datos->quota_limit[1] == 1) {
+                    $quota_limit = $datos->quota_limit[0] * 1048576;
                 } else {
-                    if ($datos->quota_limit[0] == 0) {
-                        $quota_limit = $datos->quota_limit[0];
+                    if ($datos->quota_limit[1] == 0) {
+                        $quota_limit = $datos->quota_limit[1];
                     } else {
-                        $quota_limit = $datos->quota_limit[0] * 1048576;
+                        $quota_limit = $datos->quota_limit[1] * 1048576;
                     }
                 }
                 $quota = array(

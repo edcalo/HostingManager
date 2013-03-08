@@ -1,7 +1,10 @@
 Ext.define('labinfsis.hosting.view.account.List' ,{
     extend: 'Ext.grid.Panel',
     store: 'Accounts',
-    alias : 'widget.accounts',      
+    alias : 'widget.accounts',
+    requires:[
+    'Ext.ux.form.SearchField'
+    ],
     initComponent: function() {
         this.columns = [{
             header: 'Servidor',
@@ -72,6 +75,28 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
             dataIndex:'expired',
             xtype:'datecolumn',
             format:'d/m/Y'
+        },{
+            menuDisabled: true,
+            sortable: false,
+            xtype: 'actioncolumn',
+            width: 100,
+            items: [{
+                iconCls: 'icon-edit',
+                tooltip: 'Edit account'
+            },{
+                getClass: function(v, meta, rec) {          // Or return a class from a function
+                    if (rec.get('is_delete')) {
+                        this.items[1].tooltip = 'Enable';
+                        return 'icon-ok';
+                    } else {
+                        this.items[1].tooltip = 'Disable';
+                        return 'icon-delete';
+                    }
+                }
+            },{
+                iconCls: 'icon-passwordedit',
+                tooltip: 'Reset password'
+            }] 
         }];
         this.viewConfig= {
             stripeRows: false,
@@ -113,6 +138,21 @@ Ext.define('labinfsis.hosting.view.account.List' ,{
             displayMsg: 'Mostrando {0} - {1} cuentas de  {2}',
             emptyMsg: "No hay cuentas registradas"
         });
+        this.dockedItems= [{
+            dock: 'top',
+            xtype: 'toolbar',
+            items: [{
+                width: 400,
+                fieldLabel: 'Search',
+                labelWidth: 50,
+                xtype: 'searchfield',
+                store: Ext.data.StoreManager.lookup('Accounts')
+            },  {
+                xtype: 'component',
+                tpl: 'Matching threads: {count}',
+                style: 'margin-right:5px'
+            }]
+        }];
 
         this.callParent(arguments);
     }

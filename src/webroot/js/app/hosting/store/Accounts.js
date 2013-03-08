@@ -23,6 +23,16 @@ Ext.define('labinfsis.hosting.store.Accounts', {
             writeAllFields: true,
             root: 'data',
             encode:true
+        },
+        // sends single sort as multi parameter
+        simpleSortMode: true,
+            
+        // Parameter name to send filtering information in
+        filterParam: 'query',
+
+        // The PHP script just use query=<whatever>
+        encodeFilters: function(filters) {
+            return filters[0].value;
         }
     }
 });

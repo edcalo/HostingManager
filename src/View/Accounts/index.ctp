@@ -12,7 +12,7 @@ foreach ($accounts as $account) {
         'email' => $account['User']['email'],
         'phone' => $account['User']['phone'],
         'account_name' => $account['Account']['account_name'],
-        'account_password' => $account['Account']['account_password'],
+        'account_password' => "",
         'account_description' => $account['Account']['account_description'],
         'status' => $account['Account']['status'],
         'home_dir_config' => 'custom_config',
@@ -22,7 +22,7 @@ foreach ($accounts as $account) {
         'accessed' => $account['Account']['accessed'],
         'is_saved' => true,
         'is_active' => $account['Account']['status'] == 'enable',
-        'is_delete' => $account['User']['is_delete'],
+        'is_delete' => $account['Account']['is_delete'],
     );
     if (empty($account['QuotaLimit'])) {
         $data_account['quota_limit'] = 0;

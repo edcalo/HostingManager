@@ -5,6 +5,12 @@
     Description:
         Purpose of the stylesheet follows.
 */
+.icon-edit-quota{
+    background-image:url("../../img/icons/hosting/chart_pie_edit.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
 .icon-server {
     background-image:url("../../img/icons/hosting/server/server.png") !important;
     background-repeat: no-repeat;
