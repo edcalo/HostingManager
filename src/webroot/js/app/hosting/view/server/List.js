@@ -126,17 +126,20 @@ Ext.define('labinfsis.hosting.view.server.List' ,{
                 }]
             }]
         }];
-        this.bbar=[{
-            xtype: 'textfield',
-            name : 'filter',
-            fieldLabel: 'Buscar',
-            labelWidth: 40,
-            listeners: {
-                scope : this,
-                buffer: 50,
-                change: this.filter
-            } 
-        }];
+        this.bbar=[Ext.create('Ext.PagingToolbar', {
+                store: Ext.data.StoreManager.lookup('Servers'),
+                border: false,
+                pageSize: 5,
+                items: [
+                    '-', {
+                        xtype: 'searchfield',
+                        name: 'filter',
+                        fieldLabel: 'Search',
+                        labelWidth: 40,
+                        width: 200,
+                        store: Ext.data.StoreManager.lookup('Servers')
+                    }]
+            })];
         this.callParent(arguments);
     },
 

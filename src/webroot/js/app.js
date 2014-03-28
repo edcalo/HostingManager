@@ -1,7 +1,7 @@
 Ext.Loader.setConfig({
     enabled: true
 });
-Ext.Loader.setPath('Ext.ux', 'http://localhost/libs/extjs-4.1.1/examples/ux');
+Ext.Loader.setPath('Ext.ux', 'http://localhost/libs/ext-4.2.1.883/examples/ux');
 Ext.apply(Ext.form.field.VTypes, {
     ipv4:  function(v) {
         var ip =/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/;

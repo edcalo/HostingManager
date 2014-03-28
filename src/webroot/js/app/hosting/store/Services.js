@@ -6,10 +6,10 @@ Ext.define('labinfsis.hosting.store.Services', {
         type: 'ajax',
         method:'POST',
         api: {
-            read: 'services',
-            update: 'services/edit',
-            create: 'services/add',
-            destroy: 'services/delete'
+            read: 'admin/services',
+            update: 'admin/services/edit',
+            create: 'admin/services/add',
+            destroy: 'admin/services/delete'
         },
         reader: {
             type: 'json',

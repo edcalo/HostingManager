@@ -16,7 +16,18 @@ class AccountsController extends AppController {
      */
     public function index() {
         $this->layout = 'ajax';
-        $this->Account->recursive = 1;
+        //$this->Account->recursive = 1;
+        $this->paginate = array(
+            'limit' => $this->request->query['limit'],
+            'page' => $this->request->query['page'],
+            'offset' => $this->request->query['start'],
+            'recursive' => 1,
+            'conditions' => array(
+                'Account.is_delete' => false,
+                'Account.account_name LIKE' => "%" . (isset($this->request->query['query']) ? $this->request->query['query'] : '') . "%"
+            )
+        );
+        //print_r($this->paginate()); die();
         $this->set('accounts', $this->paginate());
     }
 

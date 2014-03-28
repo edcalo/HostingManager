@@ -31,6 +31,11 @@
 			<?php echo h($server['Server']['is_active']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Is Delete'); ?></dt>
+		<dd>
+			<?php echo h($server['Server']['is_delete']); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -42,6 +47,8 @@
 		<li><?php echo $this->Html->link(__('New Server'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Accounts'), array('controller' => 'accounts', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Account'), array('controller' => 'accounts', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Services'), array('controller' => 'services', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Service'), array('controller' => 'services', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
@@ -52,6 +59,7 @@
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('User Id'); ?></th>
 		<th><?php echo __('Account Name'); ?></th>
+		<th><?php echo __('Account Description'); ?></th>
 		<th><?php echo __('Account Password'); ?></th>
 		<th><?php echo __('Uid'); ?></th>
 		<th><?php echo __('Gid'); ?></th>
@@ -60,6 +68,7 @@
 		<th><?php echo __('Count'); ?></th>
 		<th><?php echo __('Accessed'); ?></th>
 		<th><?php echo __('Expired'); ?></th>
+		<th><?php echo __('Status'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
@@ -69,6 +78,7 @@
 			<td><?php echo $account['id']; ?></td>
 			<td><?php echo $account['user_id']; ?></td>
 			<td><?php echo $account['account_name']; ?></td>
+			<td><?php echo $account['account_description']; ?></td>
 			<td><?php echo $account['account_password']; ?></td>
 			<td><?php echo $account['uid']; ?></td>
 			<td><?php echo $account['gid']; ?></td>
@@ -77,6 +87,7 @@
 			<td><?php echo $account['count']; ?></td>
 			<td><?php echo $account['accessed']; ?></td>
 			<td><?php echo $account['expired']; ?></td>
+			<td><?php echo $account['status']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'accounts', 'action' => 'view', $account['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'accounts', 'action' => 'edit', $account['id'])); ?>
@@ -90,6 +101,45 @@
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Account'), array('controller' => 'accounts', 'action' => 'add')); ?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
+	<h3><?php echo __('Related Services'); ?></h3>
+	<?php if (!empty($server['Service'])): ?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('Service Name'); ?></th>
+		<th><?php echo __('Service Description'); ?></th>
+		<th><?php echo __('Service Port'); ?></th>
+		<th><?php echo __('Is Delete'); ?></th>
+		<th><?php echo __('Image'); ?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($server['Service'] as $service): ?>
+		<tr>
+			<td><?php echo $service['id']; ?></td>
+			<td><?php echo $service['service_name']; ?></td>
+			<td><?php echo $service['service_description']; ?></td>
+			<td><?php echo $service['service_port']; ?></td>
+			<td><?php echo $service['is_delete']; ?></td>
+			<td><?php echo $service['image']; ?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View'), array('controller' => 'services', 'action' => 'view', $service['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'services', 'action' => 'edit', $service['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'services', 'action' => 'delete', $service['id']), null, __('Are you sure you want to delete # %s?', $service['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Service'), array('controller' => 'services', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 </div>

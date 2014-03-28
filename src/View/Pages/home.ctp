@@ -15,20 +15,19 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-echo $this->Html->css('http://localhost/libs/extjs-4.1.1/examples/ux/css/PasswordMeter.css', 'stylesheet', array('inline' => false));
+echo $this->Html->css('http://localhost/libs/ext-4.2.1.883/examples/ux/css/PasswordMeter.css', 'stylesheet', array('inline' => false));
 echo $this->Html->css('icons/hosting', 'stylesheet', array('inline' => false));
 echo $this->Html->css('chooser', 'stylesheet', array('inline' => false));
-echo $this->Html->css('http://localhost/libs/extjs-4.1.1/examples/ux/css/ItemSelector.css', 'stylesheet', array('inline' => false));
+echo $this->Html->css('http://localhost/libs/ext-4.2.1.883/examples/ux/css/ItemSelector.css', 'stylesheet', array('inline' => false));
 echo $this->Html->script("app");
 ?>
 
 <div class="left_content">
     <div class="center_text">
         <h1>
-            Bienvenido a FUSIP</h1>
-        <?php echo $this->Html->image('logo_institucion.jpg', array('alt' => __('logo institucion'), 'border' => '0', 'class'=>'img_left' ))?>
-        FUSIP fue dise&ntilde;ado como un sistema interno de la institucion para la administracion
-        y seguimiento de los recursos.
+            Bienvenido a SCA</h1>
+        <?php echo $this->Html->image('1389064110_Application.png', array('alt' => __('logo institucion'), 'border' => '0', 'class' => 'img_left')) ?>
+        SCA fue dise&ntilde;ado como un sistema interno de la institucion para la administracion y seguimiento de los recursos.
     </div>
     <div class="x-clear">
     </div>

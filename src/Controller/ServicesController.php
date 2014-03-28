@@ -10,122 +10,26 @@ App::uses('AppController', 'Controller');
 class ServicesController extends AppController {
 
     /**
-     * index method
-     *
-     * @return void
-     */
-    public function index() {
-        $this->layout = 'ajax';
-        $this->Service->recursive = 0;
-        $this->set('services', $this->Service->find('all', array(
-            'conditions' => array('Service.is_delete' => false)
-        )));
-    }
-
-    /**
-     * view method
-     *
-     * @throws NotFoundException
-     * @param string $id
-     * @return void
-     */
-    public function view($id = null) {
-        $this->Service->id = $id;
-        if (!$this->Service->exists()) {
-            throw new NotFoundException(__('Invalid service'));
-        }
-        $this->set('service', $this->Service->read(null, $id));
-    }
-
-    /**
-     * add method
-     *
-     * @return void
-     */
-    public function add() {
-        $this->layout = 'ajax';
-        if (!empty($this->data)) {
-            $datos = json_decode(stripslashes($this->request->data)); //decodificamos la informacion
-            $this->request->data = array('Service' => (array) $datos);
-            if ($this->Service->save($this->request->data)) {
-                $this->set('guardado', 1);
-                $this->request->data['Service']['id'] = $this->Service->id;
-            } else {
-                $this->set('guardado', 0);
-            }
-        } else {
-            $this->set('guardado', 2); // mo se recibieron datos para guardar
-        }
-    }
-
-    /**
-     * edit method
-     *
-     * @throws NotFoundException
-     * @param string $id
-     * @return void
-     */
-    public function edit() {
-        $this->layout = 'ajax';
-        $datos = json_decode(stripslashes($this->request->data)); //decodificamos la informacion
-        $success = false;
-        if (count($datos) == 1) { //verificamos si solo se modifico un registro o varios
-            $this->request->data = array('Service' => (array) $datos);
-            if ($this->Service->save($this->request->data)) {
-                $success = true;
-                $this->set('services', $this->Service->find('all'));
-            }
-            $this->set('update', $success);
-        } else if (count($datos) >= 2) {
-            $resp = array('Service' => array());
-            foreach ($datos as $dato_service) {
-                $service = array('Service' => (array) $dato_service);
-                if ($this->Service->save($service)) {
-                    $success = true;
-                    array_push($resp['Service'], $service['Service']);
-                }
-            }
-            $this->request->data = $resp;
-            $this->set('services', $this->Service->find('all'));
-        }
-        $this->set('update', $success);
-    }
-
-    /**
-     * delete method
-     *
-     * @throws MethodNotAllowedException
-     * @throws NotFoundException
-     * @param string $id
-     * @return void
-     */
-    public function delete() {
-        $this->layout = 'ajax';
-        $services = json_decode(stripslashes($this->request->data));
-        if (count($services) == 1) {
-            $services = array('Service' => (array) $services);
-            $services['Service']['is_delete'] = true;
-            $result = $this->Service->save($services);
-            $this->set('delete', $result);
-        } else {
-            $result = true;
-            foreach ($services as $dato_service) {
-                $service = array('Service' => (array) $dato_service);
-                $service['Service']['is_delete'] = true;
-                $result = ($result and $this->Service->save($service));
-            }
-            $this->set('delete', $result);
-        }
-    }
-
-    /**
      * admin_index method
      *
      * @return void
      */
     public function admin_index() {
-        $this->Service->recursive = 0;
-        $this->set('services', $this->paginate());
+
+        $this->layout = 'ajax';
+
+        $this->paginate = array(
+            'limit' => $this->request->query['limit'],
+            'page' => $this->request->query['page'],
+            'offset' => $this->request->query['start'],
+            'recursive' => 0,
+            'conditions' => array(
+                'Service.is_delete' => false,
+                'Service.service_name LIKE' => "%" . (isset($this->request->query['query']) ? $this->request->query['query'] : '') . "%"
+            )
+        );
+        //$this->Service->recursive = 0;
+        $this->set('services', $this->paginate()); //Service->find('all', $conditions));
     }
 
     /**
@@ -149,6 +53,126 @@ class ServicesController extends AppController {
      * @return void
      */
     public function admin_add() {
+        $this->layout = 'ajax';
+        if (!empty($this->data)) {
+            $datos = json_decode(stripslashes($this->request->data)); //decodificamos la informacion
+            $this->request->data = array('Service' => (array) $datos);
+            if ($this->Service->save($this->request->data)) {
+                $this->set('guardado', 1);
+                $this->request->data['Service']['id'] = $this->Service->id;
+            } else {
+                $this->set('guardado', 0);
+            }
+        } else {
+            $this->set('guardado', 2); // mo se recibieron datos para guardar
+        }
+    }
+
+    /**
+     * admin_edit method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function admin_edit() {
+        $this->layout = 'ajax';
+        $datos = json_decode(stripslashes($this->request->data)); //decodificamos la informacion
+        $success = false;
+        //var_dump($this->request->data);
+        //var_dump($datos);
+        //echo count($datos);
+        if (count($datos) == 1) { //verificamos si solo se modifico un registro o varios
+            $this->request->data = array('Service' => (array) $datos);
+            if ($this->Service->save($this->request->data)) {
+                $success = true;
+                $this->set('services', $this->Service->find('all'));
+            }
+            $this->set('update', $success);
+        } else if (count($datos) >= 2) {
+            $resp = array('Service' => array());
+            foreach ($datos as $dato_service) {
+                $service = array('Service' => (array) $dato_service);
+                if ($this->Service->save($service)) {
+                    $success = true;
+                    array_push($resp['Service'], $service['Service']);
+                }
+            }
+            $this->request->data = $resp;
+            $this->set('services', $this->Service->find('all'));
+        }
+        $this->set('update', $success);
+    }
+
+    /**
+     * admin_delete method
+     *
+     * @throws MethodNotAllowedException
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function admin_delete() {
+
+        $this->layout = 'ajax';
+        $services = json_decode(stripslashes($this->request->data));
+        //var_dump($services);
+        if (is_array($services)) {
+            if (count($services) == 1) {
+                $services = array('Service' => (array) $services);
+                $services['Service']['is_delete'] = true;
+                $result = $this->Service->save($services);
+                $this->set('delete', $result);
+            } else {
+                $result = true;
+                foreach ($services as $dato_service) {
+                    $service = array('Service' => (array) $dato_service);
+                    $service['Service']['is_delete'] = true;
+                    $result = ($result && $this->Service->save($service));
+                }
+                $this->set('delete', $result);
+            }
+        } else {
+            $services = array('Service' => (array) $services);
+            $services['Service']['is_delete'] = true;
+            //var_dump($services);
+            $result = $this->Service->save($services);
+            $this->set('delete', $result);
+        }
+    }
+
+    /**
+     * index method
+     *
+     * @return void
+     */
+    public function index() {
+        $this->Service->recursive = 0;
+        $this->set('services', $this->paginate());
+    }
+
+    /**
+     * view method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function view($id = null) {
+        $this->Service->id = $id;
+        if (!$this->Service->exists()) {
+            throw new NotFoundException(__('Invalid service'));
+        }
+        $this->set('service', $this->Service->read(null, $id));
+    }
+
+    /**
+     * add method
+     *
+     * @return void
+     */
+    public function add() {
+
         if ($this->request->is('post')) {
             $this->Service->create();
             if ($this->Service->save($this->request->data)) {
@@ -163,13 +187,14 @@ class ServicesController extends AppController {
     }
 
     /**
-     * admin_edit method
+     * edit method
      *
      * @throws NotFoundException
      * @param string $id
      * @return void
      */
-    public function admin_edit($id = null) {
+    public function edit($id = null) {
+
         $this->Service->id = $id;
         if (!$this->Service->exists()) {
             throw new NotFoundException(__('Invalid service'));
@@ -189,14 +214,15 @@ class ServicesController extends AppController {
     }
 
     /**
-     * admin_delete method
+     * delete method
      *
      * @throws MethodNotAllowedException
      * @throws NotFoundException
      * @param string $id
      * @return void
      */
-    public function admin_delete($id = null) {
+    public function delete($id = null) {
+
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();
         }
@@ -211,7 +237,7 @@ class ServicesController extends AppController {
         $this->Session->setFlash(__('Service was not deleted'));
         $this->redirect(array('action' => 'index'));
     }
-
+    
     public function upload() {
 
         $this->layout = 'ajax';
@@ -254,5 +280,4 @@ class ServicesController extends AppController {
         }
         $this->set('respuesta', $response);
     }
-
 }

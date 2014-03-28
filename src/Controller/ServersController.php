@@ -14,13 +14,26 @@ class ServersController extends AppController {
      *
      * @return void
      */
-    public function index() {
+    var $paginate = array(
+        'limit' => 1
+        
+    );
+
+    public function admin_index() {
         $this->layout = 'ajax';
-        $this->Server->recursive = 1;
-        $this->set('servers', $this->paginate());
-        $this->set('servers', $this->Server->find('all', array(
-                    'conditions' => array('Server.is_delete' => false)
-                )));
+        
+        $this->paginate = array(
+            'limit' => $this->request->query['limit'],
+            'page' => $this->request->query['page'],
+            'offset' => $this->request->query['start'],
+            'recursive' => 1,
+            'conditions' => array(
+                'Server.is_delete' => false,
+                'Server.server_name LIKE' => "%" . (isset($this->request->query['query']) ? $this->request->query['query'] : '') . "%"
+            )
+        );
+        //$this->Service->recursive = 0;
+        $this->set('servers', $this->paginate()); //Service->find('all', $conditions));
     }
 
     /**
@@ -30,7 +43,7 @@ class ServersController extends AppController {
      * @param string $id
      * @return void
      */
-    public function view($id = null) {
+    public function admin_view($id = null) {
         $this->Server->id = $id;
         if (!$this->Server->exists()) {
             throw new NotFoundException(__('Invalid server'));
@@ -43,7 +56,7 @@ class ServersController extends AppController {
      *
      * @return void
      */
-    public function add() {
+    public function admin_add() {
         $this->layout = 'ajax';
         if (!empty($this->request->data)) {
             $datos = json_decode(stripslashes($this->request->data)); //decodificamos la informacion
@@ -71,7 +84,7 @@ class ServersController extends AppController {
      * @param string $id
      * @return void
      */
-    public function edit() {
+    public function admin_edit() {
         $this->layout = 'ajax';
         $datos = json_decode(stripslashes($this->request->data)); //decodificamos la informacion
         $success = false;
@@ -116,7 +129,7 @@ class ServersController extends AppController {
      * @param string $id
      * @return void
      */
-    public function delete($id = null) {
+    public function admin_delete($id = null) {
         $this->layout = 'ajax';
         $servers = json_decode(stripslashes($this->request->data));
         if (count($servers) == 1) {
@@ -140,7 +153,7 @@ class ServersController extends AppController {
      *
      * @return void
      */
-    public function admin_index() {
+    public function index() {
         $this->Server->recursive = 0;
         $this->set('servers', $this->paginate());
     }
@@ -152,7 +165,7 @@ class ServersController extends AppController {
      * @param string $id
      * @return void
      */
-    public function admin_view($id = null) {
+    public function view($id = null) {
         $this->Server->id = $id;
         if (!$this->Server->exists()) {
             throw new NotFoundException(__('Invalid server'));
@@ -165,7 +178,7 @@ class ServersController extends AppController {
      *
      * @return void
      */
-    public function admin_add() {
+    public function add() {
         if ($this->request->is('post')) {
             $this->Server->create();
             if ($this->Server->save($this->request->data)) {
@@ -187,7 +200,7 @@ class ServersController extends AppController {
      * @param string $id
      * @return void
      */
-    public function admin_edit($id = null) {
+    public function edit($id = null) {
         $this->Server->id = $id;
         if (!$this->Server->exists()) {
             throw new NotFoundException(__('Invalid server'));
@@ -217,7 +230,7 @@ class ServersController extends AppController {
      * @param string $id
      * @return void
      */
-    public function admin_delete($id = null) {
+    public function delete($id = null) {
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();
         }

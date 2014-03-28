@@ -1,15 +1,15 @@
 <?php
 
-switch ($saved) {
+switch ($guardado) {
     case 1: {
-            $this->request->data['Server']['is_save'] = true;
+            $this->request->data['Service']['save'] = true;
             $respuesta = array(
                 'success' => true,
                 'mensage' => array(
-                    'titulo' => 'Servidor guardado',
-                    'msg' => 'El nuevo servidor fue guardado con exito en el catalogo del sistema'
+                    'titulo' => 'Servicio guardado',
+                    'msg' => 'El nuevo servicio fue guardado con exito en el catalogo del sistema'
                 ),
-                'data' => $this->request->data['Server']
+                'data' => $this->request->data['Service']
             );
             print json_encode($respuesta);
         } break;
@@ -21,7 +21,7 @@ switch ($saved) {
                     'titulo' => 'Error al guardar',
                     'msg' => 'El formulario tiene errores, corrijalos y vuelva ha intentarlo'
                 ),
-                'errors' => $this->validationErrors['Server']
+                'errors' => $this->validationErrors['Service']
             );
             print json_encode($resultado);
         } break;
@@ -30,7 +30,7 @@ switch ($saved) {
                 'success' => false,
                 'mensage' => array(
                     'titulo' => 'Error al guardar',
-                    'msg' => 'NO se recibio datos para registrar el servidor'
+                    'msg' => 'NO se recibio datos para registrar el servicio'
                 ),
                 'errors' => array()
             );

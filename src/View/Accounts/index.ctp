@@ -35,7 +35,7 @@ foreach ($accounts as $account) {
         $data_account['quota_tall'] = 0;
     } else {
         $bytes = $account['QuotaTally']['bytes_in_used'];
-        $data_account['quota_tall'] = $bytes / 1048576;
+        $data_account['quota_tall'] = round ( $bytes / 1048576, 2,PHP_ROUND_HALF_UP  );
     }
 
     $data_account['servers'] = $account['Server']['server_name'];
@@ -44,7 +44,7 @@ foreach ($accounts as $account) {
 }
 $respuesta = array(
     'success' => true,
-    'total' => count($datos),
+    'total' => $this->Paginator->param('count'),
     'data' => $datos
 );
 echo json_encode($respuesta);
